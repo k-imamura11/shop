@@ -1,0 +1,78 @@
+@extends('layouts.layout')
+@section('title')
+@endsection
+@section('content')
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="panel panel-default">
+        <div class="panel-heading">商品カテゴリー</div>
+          <ul class="nav nav-pills nav-stacked">
+            <li><a href="{{ route('shop.index') }}"><i class="glyphicon glyphicon-star"></i> 全て</a></li>
+            <li><a href="{{ route('shop.genre-change', ['id' => 1]) }}"><i class="glyphicon glyphicon-star"></i> メンズファッション</a></li>
+            <li><a href="{{ route('shop.genre-change', ['id' => 2]) }}"><i class="glyphicon glyphicon-star"></i>レディースファッション</a></li>
+            <li><a href="{{ route('shop.genre-change', ['id' => 3]) }}"><i class="glyphicon glyphicon-star"></i>キッズ・ベビー</a></li>
+            <li><a href="{{ route('shop.genre-change', ['id' => 4]) }}"><i class="glyphicon glyphicon-star"></i>時計・アクセサリー</a></li>
+          </ul>
+      </div>
+    </div>
+
+    <div class="col-md-9">
+      <div class="panel panel-default">
+        <div class="panel-heading">カートの中身</div>
+        <div class="row">
+          <div class="col-md-12">
+
+
+          @if(Session::has('cart'))
+          @foreach($products as $data)
+          <div class="col-md-4">
+            <div class="thumbnail">
+              <a href="">
+                <img class="image" src=""></img>
+              </a>
+              <div class="caption clearfix">
+                <a href="{{ route('shop.detail', ['id' => $data['item']-> id]) }}">
+                  <img class="image" src="{{ asset('/images/'.$data['item']-> image_url_1) }}"></img>
+                </a>
+                <div class="title title{{ $data['item']-> id }}">{{ $data['item']-> title }}</div>
+                <div class="quantity">数量：{{ $data['quantity'] }}個</div>
+                <div class="price">{{ number_format($data['price']) }}円</div>
+                <div><a href="" class="btn btn-default glyphicon glyphicon-trash" role="button"></a></div>
+                <div><a href="" class="btn btn-default btn-detail" role="button">商品詳細</a></div>
+              </div>
+            </div>
+          </div>
+          @endforeach
+          @else
+          <h3>カートの中身が空です。</h3>
+          @endif
+          </div>
+        </div>
+      </div>
+      <a href="{{ route('shop.cart-flash') }}" class="btn btn-primary btn-lg" role="button">カートを空にする</a>
+      <a class="btn btn-primary btn-lg check-out" role="button">決済</a>
+      @if(Session::has('cart'))
+      <div class="total-price">合計金額：{{ number_format(Session::get('cart')-> total_price) }}円</div>
+      @endif
+      <br>
+      <br>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  $(document).ready(function(){
+    //暫定対応ToDo
+    var $counts = {{ $data['item']-> id }};
+    for(var $i = 0; $i <= $counts; $i++){
+      if($('.title' + $i).text().length > 36){
+        $('.title' + $i).css({
+          "font-size": "13px"
+        });
+      }
+    }
+  });
+})();
+</script>
+@endsection

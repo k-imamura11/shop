@@ -1,0 +1,73 @@
+body {
+  padding-top: 70px;
+}
+
+.thumbnail {
+  width: 250px;
+  height: 400px;
+  margin-top: 12px;
+  position: relative;
+}
+
+.thumbnail .image {
+  max-width: 200px;
+  max-height: 300px;
+}
+
+.thumbnail .btn-detail {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  margin-bottom: 12px;
+  margin-right: 8px;
+}
+
+.thumbnail .title {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.thumbnail .quantity {
+  margin-top: 5px;
+}
+
+.price {
+  font-size: 20px;
+  font-weight: bold;
+  color: #de0000;
+  margin-top: 5px;
+}
+
+.paginate {
+  max-height: 50px;
+  max-width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.thumbnail-main .main{
+  max-width: 350px;
+  max-height: 480px;
+}
+
+.thumbnail-sub .sub{
+  max-width: 100px;
+  max-height: 150px;
+  margin: 6px;
+}
+
+.detail-content{
+  padding: 15px;
+}
+
+.total-price{
+  margin-top: 6px;
+  font-size: 26px;
+  font-weight: bold;
+  float: right;
+}
+
+.check-out{
+  float: right;
+  margin-left: 13px;
+}
