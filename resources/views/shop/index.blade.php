@@ -28,14 +28,14 @@
           @foreach($products as $data)
           <div class="col-md-4">
             <div class="thumbnail">
-              <a href="{{ route('shop.detail', ['id' => $data-> id]) }}">
+              <a href="{{ route('shop.add-history', ['id' => $data-> id]) }}">
                 <img class="image" src="{{ asset('/images/'.$data-> image_url_1) }}"></img>
               </a>
               <div class="caption clearfix">
                 <div class="title title{{ $data-> id }}">{{ $data-> title }}</div>
                 <div class="quantity">在庫: {{ $data-> quantity }}個</div>
                 <div class="price">{{ number_format($data-> price) }}円</div>
-                <div><a href="{{ route('shop.detail', ['id' => $data-> id]) }}" class="btn btn-default btn-detail" role="button">商品詳細</a></div>
+                <div><a href="{{ route('shop.add-history', ['id' => $data-> id]) }}" class="btn btn-default btn-detail" role="button">商品詳細</a></div>
               </div>
             </div>
           </div>

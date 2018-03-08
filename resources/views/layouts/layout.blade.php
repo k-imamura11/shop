@@ -6,7 +6,7 @@
     <title>@yield('title')</title>
     <link rel="stylesheet" href="{{ asset('/css/bootstrap.min.css') }}">
     <!-- <link rel="stylesheet" href="{{ asset('/css/flat-ui.min.css') }}"> -->
-    <link rel="stylesheet" href="{{ asset('/css/app.css?12') }}">
+    <link rel="stylesheet" href="{{ asset('/css/app.css?17') }}">
     <script type="text/javascript" src="{{ asset('/js/jquery.min.js') }}"></script>
   </head>
   <body>
@@ -24,7 +24,7 @@
             <button type="submit" class="btn btn-default">検索</button>
           </form>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">閲覧履歴</a></li>
+            <li><a href="{{ route('shop.history') }}">閲覧履歴</a></li>
             <li><a href="#">購入履歴</a></li>
             <li><a class="glyphicon glyphicon-shopping-cart" href="{{ route('shop.cart') }}">カート<span class="badge">{{ Session::has('cart') ? Session::get('cart')-> total_quantity : '' }}</span></a></li>
             @if(Auth::check())

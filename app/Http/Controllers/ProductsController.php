@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product;
 use DB;
+use Session;
 
 class ProductsController extends Controller
 {
@@ -51,6 +52,30 @@ class ProductsController extends Controller
     return view('shop.index', ['products' => $products, 'genre' => $genre]);
   }
 
+  public function getHistory(){
+    if(!Session::has('product')){
+      return redirect()-> route('shop.history');
+    }
+    $history = Session::has('product') ? Session::get('product') : null;
+    $products = new Product($history);
+
+    return view('shop.history', ['products' => $products-> items]);
+
+  }
+
+  public function getAddHistory(Request $request, $id){
+    $product = Product::find($id);
+    $history = Session::has('product') ? Session::get('product') : null ;
+    $items = new Product($history);
+    $items-> addHistory($product, $product-> id);
+
+    $request-> session()-> put('product', $items);
+
+    // dd(Session::get('product'));
+    $url = url('shop/detail' .'/' .$id);
+
+    return redirect($url);
+  }
 
 
 }

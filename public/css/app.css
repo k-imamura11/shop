@@ -6,21 +6,30 @@ body {
   width: 250px;
   height: 400px;
   margin-top: 12px;
-  position: relative;
 }
 
 .thumbnail .image {
-  max-width: 200px;
-  max-height: 300px;
+  max-width: 180px;
+  max-height: 240px;
 }
 
+
 .thumbnail .btn-detail {
-  position: absolute;
-  bottom: 0px;
-  right: 0px;
-  margin-bottom: 12px;
-  margin-right: 8px;
+  float: right;
 }
+
+.thumbnail .btn-cart{
+  float: right;
+  margin-right: 5px;
+
+}
+
+.thumbnail .btn-trash{
+  float: right;
+  margin-right: 5px;
+
+}
+
 
 .thumbnail .title {
   font-size: 16px;

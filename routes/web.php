@@ -48,3 +48,13 @@ Route::get('shop.cart-flash', [
   'uses' => 'CartsController@getCartFlash',
   'as' => 'shop.cart-flash'
 ]);
+
+Route::get('shop.add-history/{id}', [
+  'uses' => 'ProductsController@getAddHistory',
+  'as' => 'shop.add-history'
+]);
+
+Route::get('shop.history', [
+  'uses' => 'ProductsController@getHistory',
+  'as' => 'shop.history'
+]);
