@@ -49,7 +49,7 @@ Route::get('shop.cart-flash', [
   'as' => 'shop.cart-flash'
 ]);
 
-Route::get('shop.add-history/{id}', [
+Route::get('/shop.add-history/{id}', [
   'uses' => 'ProductsController@getAddHistory',
   'as' => 'shop.add-history'
 ]);
@@ -57,4 +57,9 @@ Route::get('shop.add-history/{id}', [
 Route::get('shop.history', [
   'uses' => 'ProductsController@getHistory',
   'as' => 'shop.history'
+]);
+
+Route::get('shop.delete-item/{id}', [
+  'uses' => 'CartsController@getDeleteItem',
+  'as' => 'shop.delete-item'
 ]);

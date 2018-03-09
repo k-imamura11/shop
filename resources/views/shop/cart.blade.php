@@ -39,7 +39,7 @@
                 <div class="quantity">数量：{{ $data['quantity'] }}個</div>
                 <div class="price">{{ number_format($data['price']) }}円</div>
                 <div><a href="{{ route('shop.add-history', ['id' => $data['item']-> id]) }}" class="btn btn-default btn-detail" role="button">商品詳細</a></div>
-                <div><a href="" class="btn btn-default glyphicon glyphicon-trash  btn-trash" role="button"></a></div>
+                <div><a href="{{ route('shop.delete-item', ['id' => $data['item']-> id]) }}" class="btn btn-default glyphicon glyphicon-trash  btn-trash" role="button"></a></div>
               </div>
             </div>
           </div>
@@ -64,6 +64,7 @@
 (function(){
   $(document).ready(function(){
     //暫定対応ToDo
+    @if(Session::has('cart'))
     var $counts = {{ $data['item']-> id }};
     for(var $i = 0; $i <= $counts; $i++){
       if($('.title' + $i).text().length > 36){
@@ -73,6 +74,7 @@
       }
     }
   });
+  @endif
 })();
 </script>
 @endsection

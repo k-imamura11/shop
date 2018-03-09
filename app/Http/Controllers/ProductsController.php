@@ -10,6 +10,7 @@ use Session;
 class ProductsController extends Controller
 {
 
+  //商品一覧表示
   public function getIndex(){
     $products = DB::table('products')
                     ->where('hideflag', '=',  0)
@@ -22,11 +23,13 @@ class ProductsController extends Controller
     return view('shop.index', ['products' => $products, 'genre' => $genre]);
   }
 
+  //商品詳細表示
   public function getProductDetail($id){
     $products = Product::find($id);
     return view('shop.detail', ['product' => $products]);
   }
 
+  //カテゴリソート
   public function getGenreChange($id){
     $products = DB::table('products')
                     ->where('genre', '=', $id)
@@ -52,6 +55,7 @@ class ProductsController extends Controller
     return view('shop.index', ['products' => $products, 'genre' => $genre]);
   }
 
+  //閲覧履歴画面表示
   public function getHistory(){
     if(!Session::has('product')){
       return redirect()-> route('shop.history');
@@ -63,6 +67,7 @@ class ProductsController extends Controller
 
   }
 
+  //閲覧履歴追加
   public function getAddHistory(Request $request, $id){
     $product = Product::find($id);
     $history = Session::has('product') ? Session::get('product') : null ;

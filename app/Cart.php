@@ -19,7 +19,7 @@ class Cart extends Model
     }
   }
 
-  //カートにアイテムを入れる
+  //カートにアイテム追加
   public function addCart($item, $id){
     $stored_item = ['item' => $item, 'quantity' => 0, 'price' => $item-> price ];
 
@@ -35,10 +35,20 @@ class Cart extends Model
     $stored_item['price'] =  $item-> price * $stored_item['quantity'];
     $this-> items[$id] = $stored_item;
     $this-> total_quantity++;
-    $this-> total_price += $stored_item['price'];
+    $this-> total_price += $item-> price;
   }
 
-  // public function deleteCartItem($item, $id){
-  //
-  // }
+  //カートのアイテム削除(１つ)
+  public function deleteItem($item, $id){
+
+    $this-> items[$id]['quantity']--;
+    $this-> items[$id]['price'] -= $item-> price;
+    $this-> total_quantity--;
+    $this-> total_price -= $item-> price;
+
+    if($this-> items[$id]['quantity'] <= 0){
+      unset($this-> items[$id]);
+    }
+  }
+
 }
