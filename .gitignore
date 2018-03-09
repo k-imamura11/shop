@@ -35,7 +35,8 @@ Thumbs.db
 # Vagrant specific
 .vagrant/
 #laravel5.5
-vendor/
+/vendor
 .env
 .htaccess
 .org
+.htaccess.org

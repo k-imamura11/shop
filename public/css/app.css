@@ -80,3 +80,9 @@ body {
   float: right;
   margin-left: 13px;
 }
+
+.empty{
+    margin-left: 16px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}

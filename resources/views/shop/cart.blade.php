@@ -45,7 +45,7 @@
           </div>
           @endforeach
           @else
-          <h3>カートの中身が空です。</h3>
+          <h3 class="empty">カートの中身が空です。</h3>
           @endif
           </div>
         </div>

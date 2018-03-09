@@ -58,10 +58,16 @@ class ProductsController extends Controller
   //閲覧履歴画面表示
   public function getHistory(){
     if(!Session::has('product')){
-      return redirect()-> route('shop.history');
+      return view('shop.history');
     }
     $history = Session::has('product') ? Session::get('product') : null;
     $products = new Product($history);
+
+    //UNIXタイムで降順にする
+    foreach ($products-> items as $key => $value) {
+      $sort[$key] = $value['date_time'];
+    }
+    array_multisort($sort, SORT_DESC, $products-> items);
 
     return view('shop.history', ['products' => $products-> items]);
 
@@ -73,9 +79,10 @@ class ProductsController extends Controller
     $history = Session::has('product') ? Session::get('product') : null ;
     $items = new Product($history);
     $items-> addHistory($product, $product-> id);
+    // $date = date("Y/m/d");
 
     $request-> session()-> put('product', $items);
-
+    // $request-> session()-> put('date', $date);
     // dd(Session::get('product'));
     $url = url('shop/detail' .'/' .$id);
 

@@ -19,7 +19,10 @@ class Product extends Model
   }
 
   public function addHistory($item, $id){
-    $this-> items[$id] = $item;
+    $checked_item = ['item' => $item, 'date_time' => ''];
+
+    $checked_item['date_time'] = time();
+    $this-> items[$id] = $checked_item;
   }
 
 }
