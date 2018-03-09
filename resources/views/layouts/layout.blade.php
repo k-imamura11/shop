@@ -6,7 +6,7 @@
     <title>@yield('title')</title>
     <link rel="stylesheet" href="{{ asset('/css/bootstrap.min.css') }}">
     <!-- <link rel="stylesheet" href="{{ asset('/css/flat-ui.min.css') }}"> -->
-    <link rel="stylesheet" href="{{ asset('/css/app.css?17') }}">
+    <link rel="stylesheet" href="{{ asset('/css/app.css?') . date('F d Y H:i:s.', filemtime('css/app.css')) }}">
     <script type="text/javascript" src="{{ asset('/js/jquery.min.js') }}"></script>
   </head>
   <body>
