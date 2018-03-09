@@ -36,6 +36,7 @@
                 <div class="quantity">在庫: {{ $data-> quantity }}個</div>
                 <div class="price">{{ number_format($data-> price) }}円</div>
                 <div><a href="{{ route('shop.add-history', ['id' => $data-> id]) }}" class="btn btn-default btn-detail" role="button">商品詳細</a></div>
+                <div><a href="{{ route('shop.add-cart', ['id' => $data-> id]) }}" class="btn btn-default btn-cart glyphicon glyphicon-shopping-cart" role="button"></a></div>
               </div>
             </div>
           </div>
