@@ -79,15 +79,16 @@ class ProductsController extends Controller
     $history = Session::has('product') ? Session::get('product') : null ;
     $items = new Product($history);
     $items-> addHistory($product, $product-> id);
-    // $date = date("Y/m/d");
 
     $request-> session()-> put('product', $items);
-    // $request-> session()-> put('date', $date);
     // dd(Session::get('product'));
     $url = url('shop/detail' .'/' .$id);
 
     return redirect($url);
   }
 
+  public function getCheckout(){
+    return view('shop.checkout');
+  }
 
 }

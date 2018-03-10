@@ -39,27 +39,32 @@ Route::get('shop/cart', [
   'as' => 'shop.cart'
 ]);
 
-Route::get('/shop.add-cart/{id}', [
+Route::get('/shop/add-cart/{id}', [
   'uses' => 'CartsController@getAddCart',
   'as' => 'shop.add-cart'
 ]);
 
-Route::get('shop.cart-flash', [
+Route::get('shop/cart-flash', [
   'uses' => 'CartsController@getCartFlash',
   'as' => 'shop.cart-flash'
 ]);
 
-Route::get('/shop.add-history/{id}', [
+Route::get('/shop/add-history/{id}', [
   'uses' => 'ProductsController@getAddHistory',
   'as' => 'shop.add-history'
 ]);
 
-Route::get('shop.history', [
+Route::get('shop/history', [
   'uses' => 'ProductsController@getHistory',
   'as' => 'shop.history'
 ]);
 
-Route::get('shop.delete-item/{id}', [
+Route::get('shop/delete-item/{id}', [
   'uses' => 'CartsController@getDeleteItem',
   'as' => 'shop.delete-item'
+]);
+
+Route::get('shop/checkout', [
+  'uses' => 'ProductsController@getCheckout',
+  'as' => 'shop.checkout'
 ]);

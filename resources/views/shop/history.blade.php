@@ -36,7 +36,7 @@
 </div>
 <script>
 (function(){
-@if(Session::has('cart'))
+@if(Session::has('product'))
 $(document).ready(function(){
   var $counts = {{ $data['item']-> id }};
   for(var $i = 0; $i <= $counts; $i++){

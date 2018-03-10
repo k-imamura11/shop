@@ -51,7 +51,7 @@
         </div>
       </div>
       <a href="{{ route('shop.cart-flash') }}" class="btn btn-primary btn-lg" role="button">カートを空にする</a>
-      <a class="btn btn-primary btn-lg check-out" role="button">決済</a>
+      <a href="{{ route('shop.checkout') }}" class="btn btn-primary btn-lg check-out" role="button">決済</a>
       @if(Session::has('cart'))
       <div class="total-price">合計金額：{{ number_format(Session::get('cart')-> total_price) }}円</div>
       @endif
