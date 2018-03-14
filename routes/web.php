@@ -13,11 +13,29 @@
 
 Auth::routes();
 
-Route::get('/logout', [
-  'uses' => 'UsersController@getLogout',
-  'as' => 'logout'
-]);
+Route::group(['prefix' => 'admin'], function() {
+    Route::get('/', function(){ return redirect('admin/'); });
+    Route::get('login', 'Admin\Auth\LoginController@showLoginForm');
+    Route::post('login', 'Admin\Auth\LoginController@login')-> name('admin.login');
+});
 
+Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
+    Route::get('logout', 'Admin\Auth\LoginController@logout');
+    Route::get('/', 'Admin\AdminsController@getIndex');
+});
+
+Route::group(['middleware' => 'auth:user'], function(){
+  Route::get('/logout', [
+    'uses' => 'UsersController@getLogout',
+    'as' => 'logout'
+  ]);
+
+  Route::get('shop/checkout', [
+    'uses' => 'ProductsController@getCheckout',
+    'as' => 'shop.checkout'
+  ]);
+
+});
 
 Route::get('/', [
   'uses' => 'ProductsController@getIndex',
@@ -62,9 +80,4 @@ Route::get('shop/history', [
 Route::get('shop/delete-item/{id}', [
   'uses' => 'CartsController@getDeleteItem',
   'as' => 'shop.delete-item'
-]);
-
-Route::get('shop/checkout', [
-  'uses' => 'ProductsController@getCheckout',
-  'as' => 'shop.checkout'
 ]);
