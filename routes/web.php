@@ -14,7 +14,7 @@
 Auth::routes();
 
 Route::group(['prefix' => 'admin'], function() {
-    Route::get('/', function(){ return redirect('admin/'); });
+    Route::get('/', function(){ return redirect('admin/password'); });
     Route::get('login', 'Admin\Auth\LoginController@showLoginForm');
     Route::post('login', 'Admin\Auth\LoginController@login')-> name('admin.login');
 });
