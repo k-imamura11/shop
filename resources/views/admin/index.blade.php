@@ -1,1 +1,5 @@
-<h1>ようこそ管理者さん</h1>
+@extends('layouts.layout_admin')
+@section('title')
+@endsection
+@section('content')
+@endsection

@@ -1,0 +1,16 @@
+#admin {
+  margin-top: 80px;
+}
+
+.admin_name{
+  font-size: 14px;
+  margin-top: 15px;
+  margin-left: 50px;
+  font-family: sans-serif;
+}
+
+.name_color{
+  color: #004de2;
+  margin-left: 10px;
+  margin-right: 10px;
+}

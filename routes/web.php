@@ -20,8 +20,8 @@ Route::group(['prefix' => 'admin'], function() {
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
-    Route::get('logout', 'Admin\Auth\LoginController@logout');
-    Route::get('/', 'Admin\AdminsController@getIndex');
+    Route::get('logout', 'Admin\Auth\LoginController@logout')-> name('admin.logout');
+    Route::get('/', 'Admin\AdminsController@getIndex')-> name('admin.index');
 });
 
 Route::group(['middleware' => 'auth:user'], function(){
