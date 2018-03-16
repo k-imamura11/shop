@@ -13,6 +13,7 @@
           <th class="col3"><div class="email">メールアドレス</div></th>
           <th class="col4"><div class="address">住所</div></th>
         </tr>
+        @if($admins)
         @foreach($admins as $admin)
         <tr class="table-data">
           <td><a href="" class="glyphicon glyphicon-check pull-left" style="font-size: 18px; margin: 5px;"></a><div>{{ $admin-> id }}</div></td>
@@ -21,6 +22,7 @@
           <td><div>{{ $admin-> address }}</div></td>
         </tr>
         @endforeach
+        @endif
       </table>
       <br>
       <div class="paginate">{{ $admins-> links() }}</div>
