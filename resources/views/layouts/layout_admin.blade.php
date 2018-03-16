@@ -22,8 +22,8 @@
             <li class="pull-right">さん</li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="">ユーザー一覧</a></li>
-            <li><a href="">管理者一覧</a></li>
+            <li><a href="{{ route('admin.userlist') }}">ユーザー一覧</a></li>
+            <li><a href="{{ route('admin.adminlist') }}">管理者一覧</a></li>
             <li><a href="#">商品一覧</a></li>
             <li><a class="" href="">商品管理</a></li>
             <li><a href="">更新履歴</a></li>

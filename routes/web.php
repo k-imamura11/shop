@@ -13,15 +13,19 @@
 
 Auth::routes();
 
+//管理画面（認証不要）
 Route::group(['prefix' => 'admin'], function() {
     Route::get('/', function(){ return redirect('admin/password'); });
     Route::get('login', 'Admin\Auth\LoginController@showLoginForm');
     Route::post('login', 'Admin\Auth\LoginController@login')-> name('admin.login');
 });
 
+//管理画面（認証必要）
 Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
     Route::get('logout', 'Admin\Auth\LoginController@logout')-> name('admin.logout');
     Route::get('/', 'Admin\AdminsController@getIndex')-> name('admin.index');
+    Route::get('userlist', 'Admin\UserManagementsController@getUserList')-> name('admin.userlist');
+    Route::get('adminlist', 'Admin\UserManagementsController@getAdminList')-> name('admin.adminlist');
 });
 
 Route::group(['middleware' => 'auth:user'], function(){

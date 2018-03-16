@@ -12,10 +12,12 @@ class AdminsTableSeeder extends Seeder
     public function run()
     {
       DB::table('admins')->insert([
-            'name' => 'admin',
-            'email' => 'kota.1993.11.3@gmail.com',
-            'password' => bcrypt('qwer2535'),
-            'address' => '神奈川県横浜市',
-          ]);
+          'name' => 'admin',
+          'email' => 'admin@gmail.com',
+          'password' => bcrypt('qwer2535'),
+          'address' => '神奈川県横浜市',
+        ]);
+
+      factory(App\Admin::class, 50)-> create();
     }
 }

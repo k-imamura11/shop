@@ -1,4 +1,8 @@
-#admin {
+body{
+  padding-top: 70px;
+}
+
+#admin{
   margin-top: 80px;
 }
 
@@ -13,4 +17,35 @@
   color: #004de2;
   margin-left: 10px;
   margin-right: 10px;
+}
+
+.userstable{
+  margin-top: 30px;
+}
+
+.userstable .col1{
+  width: 110px;
+}
+.userstable .col2{
+  width: 240px;
+}
+.userstable .col3{
+  width:350px;
+}
+.userstable .col4{
+  width: 450px;
+}
+
+.table-title div{
+  font-size: 15px;
+  margin-left: 5px;
+  padding: 5px;
+  font-family: sans-serif;
+}
+
+.table-data div{
+  font-size: 13px;
+  margin-left: 5px;
+  padding: 5px;
+  font-family: sans-serif;
 }
