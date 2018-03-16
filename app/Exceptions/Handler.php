@@ -50,6 +50,17 @@ class Handler extends ExceptionHandler
     {
 
       return parent::render($request, $exception);
-      
+
+//=================================================================================================
+//      MultiAuthを使用しているためadminとuserの非認証時のリダイレクト先を下記ファイルに追加すること
+//      **Illuminate\Foundation\Exceptions::unauthenticated();**
+//==================================================================================================
+//      //Multilogin実装のためadminの認証失敗時のリダイレクト先追加
+//      if(in_array('admin', $exception-> guards(), true)){
+//        return redirect()-> guest(route('admin.login'));
+//      }
+//        return redirect()-> guest(route('login'));
+//      }
+//
     }
 }
