@@ -18,6 +18,6 @@ class AdminsTableSeeder extends Seeder
           'address' => '神奈川県横浜市',
         ]);
 
-      factory(App\Admin::class, 50)-> create();
+      factory(App\Admin::class, 150)-> create();
     }
 }

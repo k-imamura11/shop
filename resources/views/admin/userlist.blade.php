@@ -23,6 +23,7 @@
         @endforeach
       </table>
       <br>
+      <div class="paginate">{{ $users-> links() }}</div>
       <br>
     <div>
   <div>

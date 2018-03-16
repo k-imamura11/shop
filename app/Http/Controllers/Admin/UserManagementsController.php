@@ -12,7 +12,7 @@ class UserManagementsController extends Controller
     public function getUserList(){
       $users = DB::table('users')
                   -> orderby('id', 'asc')
-                  -> get();
+                  -> paginate(50);
 
       return view('admin.userlist', ['users' => $users]);
     }
@@ -21,7 +21,7 @@ class UserManagementsController extends Controller
     public function getAdminList(){
       $admins = DB::table('admins')
                   -> orderby('id', 'asc')
-                  -> get();
+                  -> paginate(50);
 
       return view('admin.adminlist', ['admins' => $admins]);
     }
