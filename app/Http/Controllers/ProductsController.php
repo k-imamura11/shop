@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
+use App\Cart;
 use DB;
 use Session;
+use Stripe\Charge;
+use Stripe\Stripe;
 
 class ProductsController extends Controller
 {
@@ -87,8 +90,41 @@ class ProductsController extends Controller
     return redirect($url);
   }
 
+  //決済ページ表示
   public function getCheckout(){
-    return view('shop.checkout');
+    if(!Session::has('cart')){
+      Session::flash('message', 'カート内にアイテムが無いため決済ページを表示できません。');
+      return redirect()-> route('shop.cart');
+    }
+    $oldCart = Session::has('cart') ? Session::get('cart') : null;
+    $cart = new Cart($oldCart);
+    $total_price = $cart-> total_price;
+    return view('shop.checkout', ['total_price' => $total_price]);
+  }
+
+  //決済処理
+  public function postCheckout(Request $request){
+    if(!Session::has('cart')){
+      return view('shop.cart');
+    }
+    $oldCart = Session::has('cart') ? Session::get('cart') : null;
+    $cart = new Cart($oldCart);
+
+    Stripe::setApiKey('sk_test_lpzBO5ZgdS0HLIPUc0N8NJfe');
+
+    try {
+      Charge::create([
+        "amount" => $cart-> total_price * 100,
+        "currency" => "jpy",
+        "source" => $request-> input('stripeToken'),
+        "discription" => "test"
+      ]);
+    } catch(\Exception $e) {
+      return redirect()-> route('checkout')-> with('error', $e-> getMessage());
+    }
+
+    Session::forget('cart');
+    return redirect()-> route('shop.index')-> with('success', 'チャージ完了！');
   }
 
 }

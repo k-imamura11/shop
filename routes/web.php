@@ -34,9 +34,14 @@ Route::group(['middleware' => 'auth:user'], function(){
     'as' => 'logout'
   ]);
 
-  Route::get('shop/checkout', [
+  Route::get('checkout', [
     'uses' => 'ProductsController@getCheckout',
     'as' => 'shop.checkout'
+  ]);
+
+  Route::post('checkout', [
+    'uses' => 'ProductsController@postCheckout',
+    'as' => 'checkout'
   ]);
 
 });

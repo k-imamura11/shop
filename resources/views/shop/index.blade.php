@@ -17,6 +17,16 @@
       </div>
     </div>
 
+    @if(Session::has('success'))
+    <div class="row">
+      <div class="col-md-9">
+        <div id="charge-message" class="alert alert-success">
+          {{ Session::get('success') }}
+        </div>
+      </div>
+    </div>
+    @endif
+
     <div class="col-md-9">
       <div class="panel panel-default">
         <div class="panel-heading">{{ $genre }}</div>

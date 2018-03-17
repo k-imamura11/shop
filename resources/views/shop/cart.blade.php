@@ -18,6 +18,9 @@
     </div>
 
     <div class="col-md-9">
+      @if(Session::has('message'))
+      <div class="alert alert-danger">{{ Session::get('message') }}</div>
+      @endif
       <div class="panel panel-default">
         <div class="panel-heading">カートの中身</div>
         <div class="row">
