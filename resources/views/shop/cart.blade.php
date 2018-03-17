@@ -6,13 +6,13 @@
   <div class="row">
     <div class="col-md-3">
       <div class="panel panel-default">
-        <div class="panel-heading">商品カテゴリー</div>
+        <div class="panel-heading">カテゴリ</div>
           <ul class="nav nav-pills nav-stacked">
-            <li><a href="{{ route('shop.index') }}"><i class="glyphicon glyphicon-star"></i> 全て</a></li>
-            <li><a href="{{ route('shop.genre-change', ['id' => 1]) }}"><i class="glyphicon glyphicon-star"></i> メンズファッション</a></li>
-            <li><a href="{{ route('shop.genre-change', ['id' => 2]) }}"><i class="glyphicon glyphicon-star"></i>レディースファッション</a></li>
-            <li><a href="{{ route('shop.genre-change', ['id' => 3]) }}"><i class="glyphicon glyphicon-star"></i>キッズ・ベビー</a></li>
-            <li><a href="{{ route('shop.genre-change', ['id' => 4]) }}"><i class="glyphicon glyphicon-star"></i>時計・アクセサリー</a></li>
+            <li><a href="{{ route('shop.index') }}"><i class="glyphicon glyphicon-chevron-right pull-right"></i> 全て</a></li>
+            <li><a href="{{ route('shop.genre-change', ['id' => 1]) }}"><i class="glyphicon glyphicon-chevron-right pull-right"></i> メンズファッション</a></li>
+            <li><a href="{{ route('shop.genre-change', ['id' => 2]) }}"><i class="glyphicon glyphicon-chevron-right pull-right"></i>レディースファッション</a></li>
+            <li><a href="{{ route('shop.genre-change', ['id' => 3]) }}"><i class="glyphicon glyphicon-chevron-right pull-right"></i>キッズ・ベビー</a></li>
+            <li><a href="{{ route('shop.genre-change', ['id' => 4]) }}"><i class="glyphicon glyphicon-chevron-right pull-right"></i>時計・アクセサリー</a></li>
           </ul>
       </div>
     </div>

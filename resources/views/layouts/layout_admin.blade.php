@@ -8,6 +8,7 @@
     <!-- <link rel="stylesheet" href="{{ asset('/css/flat-ui.min.css') }}"> -->
     <link rel="stylesheet" href="{{ asset('/css/app_admin.css?') . date('F d Y H:i:s.', filemtime('css/app.css')) }}">
     <script type="text/javascript" src="{{ asset('/js/jquery.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/js/bootstrap.min.js') }}"></script>
   </head>
   <body>
     <div class="header">
@@ -30,8 +31,7 @@
             <li><a href="{{ route('admin.logout') }}">ログアウト</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                三
-                <span class="caret"></span>
+                <i class="glyphicon glyphicon-list" style="font-size: 20px;"></i>
               </a>
               <ul class="dropdown-menu">
                 <li><a href="#">Action</a></li>
