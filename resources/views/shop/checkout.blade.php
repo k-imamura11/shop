@@ -5,7 +5,7 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-6 col-md-4 col-md-offset-4 col-sm-offset-3">
-      <h3>合計金額：{{ $total_price }}円</h3>
+      <h3>合計金額：{{ number_format($total_price) }}円</h3>
 
       <div id="charge-error" class="alert alert-danger {{ !Session::has('error') ? 'hidden' : '' }}">
         {{ Session::get('error') }}
@@ -39,14 +39,14 @@
           </div>
           <div class="col-xs-6">
             <div class="form-group">
-              <label for="card-expily-month">有効期限(月)</label>
-              <input type="text" id="card-expily-month" class="form-control" required>
+              <label for="card-expiry-month">有効期限(月)</label>
+              <input type="text" id="card-expiry-month" class="form-control" required>
             </div>
           </div>
           <div class="col-xs-6">
             <div class="form-group">
-              <label for="card-expily-year">有効期限(年)</label>
-              <input type="text" id="card-expily-year" class="form-control" required>
+              <label for="card-expiry-year">有効期限(年)</label>
+              <input type="text" id="card-expiry-year" class="form-control" required>
             </div>
           </div>
           <div class="col-xs-12">

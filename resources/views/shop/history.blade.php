@@ -26,7 +26,7 @@
             </div>
           @endforeach
           @else
-          <h3 class="empty">閲覧履歴がありません。</h3>
+          <h3 class="empty">閲覧履歴がありません</h3>
           @endif
           </div>
         </div>

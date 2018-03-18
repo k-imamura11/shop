@@ -16,24 +16,11 @@
           </ul>
       </div>
     </div>
-
-    @if(Session::has('success'))
-    <div class="row">
-      <div class="col-md-9">
-        <div id="charge-message" class="alert alert-success">
-          {{ Session::get('success') }}
-        </div>
-      </div>
-    </div>
-    @endif
-
     <div class="col-md-9">
       <div class="panel panel-default">
         <div class="panel-heading">{{ $genre }}</div>
         <div class="row">
           <div class="col-md-12">
-
-
           @if($products)
           @foreach($products as $data)
           <div class="col-md-4">
@@ -58,7 +45,6 @@
         </div>
       </div>
     </div>
-
   </div>
 </div>
 <div class="paginate">{{ $products->links() }}</div>

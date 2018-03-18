@@ -14,7 +14,7 @@ class ProductsController extends Controller
 {
 
   //商品一覧表示
-  public function getIndex(){
+  public function getIndex(Request $request){
     $products = DB::table('products')
                     ->where('hideflag', '=',  0)
                     ->orderby('updated_at', 'desc')
@@ -84,7 +84,6 @@ class ProductsController extends Controller
     $items-> addHistory($product, $product-> id);
 
     $request-> session()-> put('product', $items);
-    // dd(Session::get('product'));
     $url = url('shop/detail' .'/' .$id);
 
     return redirect($url);
@@ -109,22 +108,53 @@ class ProductsController extends Controller
     }
     $oldCart = Session::has('cart') ? Session::get('cart') : null;
     $cart = new Cart($oldCart);
+    $products = $cart-> items;
 
     Stripe::setApiKey('sk_test_lpzBO5ZgdS0HLIPUc0N8NJfe');
 
+    DB::beginTransaction();
     try {
       Charge::create([
-        "amount" => $cart-> total_price * 100,
+        "amount" => $cart-> total_price,
         "currency" => "jpy",
         "source" => $request-> input('stripeToken'),
-        "discription" => "test"
+        "description" => "test"
       ]);
     } catch(\Exception $e) {
       return redirect()-> route('checkout')-> with('error', $e-> getMessage());
+      DB::rollback();
     }
 
+    //購入後処理
+    $this-> takeQuantity($products);
+    $this-> addHideFlag();
+
+    DB::commit();
     Session::forget('cart');
-    return redirect()-> route('shop.index')-> with('success', 'チャージ完了！');
+
+    return view('shop.result', ['products' => $products]);
+  }
+
+  //在庫減らす
+  public function takeQuantity($items){
+    foreach($items as $item){
+      if ($item['item']-> quantity > 0){
+        Product::where('id', $item['item']-> id)
+                ->decrement('quantity', $item['quantity']);
+      }
+    }
+  }
+
+  //商品非表示処理
+  public function addHideFlag(){
+    $items = Product::all();
+
+    foreach($items as $item){
+      if($item-> quantity <= 0){
+        Product::where('id', $item-> id)
+                ->update(['hideflag' => 1]);
+      }
+    }
   }
 
 }
