@@ -14,7 +14,7 @@ class ProductsController extends Controller
 {
 
   //商品一覧表示
-  public function getIndex(Request $request){
+  public function getIndex(){
     $products = DB::table('products')
                     ->where('hideflag', '=',  0)
                     ->orderby('updated_at', 'desc')
