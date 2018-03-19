@@ -142,8 +142,8 @@ class ProductsController extends Controller
   public function takeQuantity($items){
     foreach($items as $item){
       if ($item['item']-> quantity > 0){
-        $datas = Product::where('id', $item['item']-> id)
-                        ->decrement('quantity', $item['quantity']);
+        Product::where('id', $item['item']-> id)
+                ->decrement('quantity', $item['quantity']);
       }
     }
   }
