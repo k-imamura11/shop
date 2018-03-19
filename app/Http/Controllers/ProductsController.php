@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Cart;
+use App\Order;
 use DB;
 use Session;
 use Stripe\Charge;
 use Stripe\Stripe;
+use Auth;
 
 class ProductsController extends Controller
 {
@@ -126,6 +128,7 @@ class ProductsController extends Controller
     }
 
     //購入後処理
+    $this-> addOrder($products);
     $this-> takeQuantity($products);
     $this-> addHideFlag();
 
@@ -139,8 +142,8 @@ class ProductsController extends Controller
   public function takeQuantity($items){
     foreach($items as $item){
       if ($item['item']-> quantity > 0){
-        Product::where('id', $item['item']-> id)
-                ->decrement('quantity', $item['quantity']);
+        $datas = Product::where('id', $item['item']-> id)
+                        ->decrement('quantity', $item['quantity']);
       }
     }
   }
@@ -155,6 +158,20 @@ class ProductsController extends Controller
                 ->update(['hideflag' => 1]);
       }
     }
+  }
+
+  //購入履歴保存
+  public function addOrder($items){
+    foreach ($items as $item){
+      $order = new Order;
+
+      $order-> user_id = Auth::id();
+      $order-> product_id = $item['item']-> id;
+      $order-> order_price = $item['price'];
+      $order-> order_quantity = $item['quantity'];
+
+      $order-> save();
+      }
   }
 
 }

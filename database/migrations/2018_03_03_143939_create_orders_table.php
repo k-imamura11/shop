@@ -17,12 +17,10 @@ class CreateOrdersTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigend();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->string('user_name', 255)->unsigend();
-            $table->foreign('user_name')->references('name')->on('users');
-            $table->string('user_email', 255)->unsigend();
-            $table->foreign('user_email')->references('email')->on('users');
-            $table->string('user_address', 255)->unsigend();
-            $table->foreign('user_address')->references('address')->on('users');
+            $table->integer('product_id')->unsigend();
+            $table->foreign('product_id')->references('id')->on('products');
+            $table->integer('order_price');
+            $table->integer('order_quantity');
             $table->timestamps();
         });
     }

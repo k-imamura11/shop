@@ -26,7 +26,7 @@
           </form>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="{{ route('shop.history') }}">閲覧履歴</a></li>
-            <li><a href="#">購入履歴</a></li>
+            <li><a href="{{ route('shop.order') }}">購入履歴</a></li>
             <li><a class="glyphicon glyphicon-shopping-cart" href="{{ route('shop.cart') }}">カート<span class="badge">{{ Session::has('cart') ? Session::get('cart')-> total_quantity : '' }}</span></a></li>
             @if(Auth::check())
             <li><a href="{{ route('logout') }}">ログアウト</a></li>
@@ -39,11 +39,8 @@
                 <i class="glyphicon glyphicon-list" style="font-size: 20px;"></i>
               </a>
               <ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">Separated link</a></li>
+                <li><a href="{{ route('shop.history') }}">閲覧履歴</a></li>
+                <li><a href="{{ route('shop.order') }}">購入履歴</a></li>
               </ul>
             </li>
           </ul>

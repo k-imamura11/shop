@@ -28,6 +28,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
     Route::get('adminlist', 'Admin\UserManagementsController@getAdminList')-> name('admin.adminlist');
 });
 
+//ユーザー画面（認証必要）
 Route::group(['middleware' => 'auth:user'], function(){
   Route::get('/logout', [
     'uses' => 'UsersController@getLogout',
@@ -44,8 +45,14 @@ Route::group(['middleware' => 'auth:user'], function(){
     'as' => 'checkout'
   ]);
 
+  Route::get('order', [
+    'uses' => 'OrdersController@getOrderHistory',
+    'as' => 'shop.order'
+  ]);
+
 });
 
+//ユーザー画面（認証不要）
 Route::get('/', [
   'uses' => 'ProductsController@getIndex',
   'as' => 'shop.index'
