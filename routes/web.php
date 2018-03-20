@@ -13,6 +13,8 @@
 
 Auth::routes();
 
+Route::get('/date', 'OrdersController@getDateList');
+
 //管理画面（認証不要）
 Route::group(['prefix' => 'admin'], function() {
     Route::get('/', function(){ return redirect('admin/password'); });

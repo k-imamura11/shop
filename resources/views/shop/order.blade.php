@@ -12,6 +12,9 @@
             @if($products)
             @foreach($products as $data)
             <div class="col-md-3">
+              <div class="panel panel-default">
+                <div class="panel-heading">購入日：{{ $data-> date }}</div>
+
               <div class="thumbnail">
                 <a href="{{ route('shop.add-history', ['id' => $data-> id]) }}">
                   <img class="image" src="{{ asset('/images/' .$data-> image_url_1) }}"></img>
@@ -23,6 +26,9 @@
                   <div><a href="{{ route('shop.add-history', ['id' => $data-> id]) }}" class="btn btn-default btn-detail" role="button">商品詳細</a></div>
                 </div>
               </div>
+
+            </div>
+
             </div>
           @endforeach
           @else
