@@ -5,6 +5,19 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
+
+      <div id="date-list" class="dropdown">
+        <button class="btn btn-default dropdown-toggle pull-right" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          {{ date('Y-m', time()) }}
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
+          @foreach($date_list as $date)
+          <li><a href="{{ route('order.change-date', ['tar_date' => $date]) }}">{{ $date }}</a></li>
+          @endforeach
+        </ul>
+      </div>
+
       <div class="panel panel-default">
         <div class="panel-heading">購入履歴</div>
         <div class="row">
@@ -40,4 +53,10 @@
     </div>
   </div>
 </div>
+<script>
+(function(){
+
+})();
+</script>
+
 @endsection

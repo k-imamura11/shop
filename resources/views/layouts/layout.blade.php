@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{{ asset('/css/bootstrap.min.css') }}">
     <!-- <link rel="stylesheet" href="{{ asset('/css/flat-ui.min.css') }}"> -->
     <link rel="stylesheet" href="{{ asset('/css/app.css?') . date('F d Y H:i:s.', filemtime('css/app.css')) }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script type="text/javascript" src="{{ asset('/js/jquery.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('/js/bootstrap.min.js') }}"></script>
   </head>

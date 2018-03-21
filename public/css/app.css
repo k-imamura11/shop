@@ -86,3 +86,8 @@ body {
     margin-top: 16px;
     margin-bottom: 16px;
 }
+
+#date-list{
+  margin-top: 0px;
+  margin-bottom: 46px;
+}

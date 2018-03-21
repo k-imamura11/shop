@@ -13,8 +13,6 @@
 
 Auth::routes();
 
-Route::get('/date', 'OrdersController@getDateList');
-
 //管理画面（認証不要）
 Route::group(['prefix' => 'admin'], function() {
     Route::get('/', function(){ return redirect('admin/password'); });
@@ -51,6 +49,8 @@ Route::group(['middleware' => 'auth:user'], function(){
     'uses' => 'OrdersController@getOrderHistory',
     'as' => 'shop.order'
   ]);
+
+  Route::get('/order/change-date/{tar_date}', 'OrdersController@changeDate')-> name('order.change-date');
 
 });
 
