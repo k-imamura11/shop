@@ -12,9 +12,13 @@
           <span class="caret"></span>
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
-          @foreach($date_list as $date)
-          <li><a href="{{ route('order.change-date', ['tar_date' => $date]) }}">{{ $date }}</a></li>
-          @endforeach
+          <li><a href="" class="day0"></a></li>
+          <li><a href="" class="day1"></a></li>
+          <li><a href="" class="day2"></a></li>
+          <li><a href="" class="day3"></a></li>
+          <li><a href="" class="day4"></a></li>
+          <li><a href="" class="day5"></a></li>
+          <li><a href="" class="day6"></a></li>
         </ul>
       </div>
 
@@ -53,10 +57,4 @@
     </div>
   </div>
 </div>
-<script>
-(function(){
-
-})();
-</script>
-
 @endsection

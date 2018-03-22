@@ -50,8 +50,9 @@ Route::group(['middleware' => 'auth:user'], function(){
     'as' => 'shop.order'
   ]);
 
-  Route::get('/order/change-date/{tar_date}', 'OrdersController@changeDate')-> name('order.change-date');
+  Route::get('/order/{tar_date}', 'OrdersController@changeDate')-> name('order.change-date');
 
+  Route::get('/getDate', 'OrdersController@getDateList')-> name('order.getDate');
 });
 
 //ユーザー画面（認証不要）
@@ -65,7 +66,7 @@ Route::get('/shop/detail/{id}', [
   'as' => 'shop.detail'
 ]);
 
-Route::get('/genre-change/{id}', [
+Route::get('/{id}', [
   'uses' => 'ProductsController@getGenreChange',
   'as' => 'shop.genre-change'
 ]);

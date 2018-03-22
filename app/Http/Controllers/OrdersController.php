@@ -17,19 +17,7 @@ class OrdersController extends Controller
                   ->orderby('date', 'desk')
                   ->get();
 
-      //プルダウンで6カ月前までの日付を表示
-      //日付は月の最初の日付で計算
-      $start_date = date('Y-m-01', time());
-      $ux_start_date = strtotime($start_date);
-      $end_date = date('Y-m-01', strtotime($start_date . "-1 year"));
-      $ux_end_date = strtotime($end_date);
-      $date_list = [];
-
-      for($date = $ux_start_date; $date >= $ux_end_date; $date = strtotime('-1 month', $date)){
-        $date_list[] = date('Y-m', $date);
-      }
-
-      return view('shop.order', ['products' => $products, 'date_list'=> $date_list]);
+      return view('shop.order', ['products' => $products]);
     }
 
     //日付切り替え用　Todo暫定対応
@@ -42,20 +30,27 @@ class OrdersController extends Controller
                   ->where('products.updated_at', 'like', $tar_date .'%')
                   ->get();
 
+
+      return view('shop.order', ['products' => $products]);
+    }
+
+    public function getDateList(Request $request){
       //プルダウンで6カ月前までの日付を表示
       //日付は月の最初の日付で計算
-      $start_date = date('Y-m-01', time());
-      $ux_start_date = strtotime($start_date);
-      $end_date = date('Y-m-01', strtotime($start_date . "-1 year"));
-      $ux_end_date = strtotime($end_date);
-      $date_list = [];
+        $start_date = date('Y-m-01', time());
+        $ux_start_date = strtotime($start_date);
+        $end_date = date('Y-m-01', strtotime($start_date . "-1 year"));
+        $ux_end_date = strtotime($end_date);
+        $date_list = [];
 
-      for($date = $ux_start_date; $date >= $ux_end_date; $date = strtotime('-1 month', $date)){
-        $date_list[] = date('Y-m', $date);
-      }
+        for($date = $ux_start_date; $date >= $ux_end_date; $date = strtotime('-1 month', $date)){
+          $date_list[] = date('Y-m', $date);
+        }
 
-
-      return view('shop.order', ['products' => $products, 'date_list'=> $date_list]);
+        //ヘッダーの設定
+        header('Content-type:application/json; charset=utf8');
+        //json_encodeして出力
+        echo json_encode($date_list);
     }
 
 
