@@ -5,7 +5,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <table class="userstable" border="2px">
+      <table class="user-table" border="2px">
         <h4>ユーザー一覧</h4>
         <tr class="table-title">
           <th class="col1"><div class="id">ユーザーid</div></th>
@@ -25,7 +25,7 @@
       <br>
       <div class="paginate">{{ $users-> links() }}</div>
       <br>
-    <div>
-  <div>
+    </div>
+  </div>
 </div>
 @endsection

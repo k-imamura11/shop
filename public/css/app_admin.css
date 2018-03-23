@@ -26,20 +26,23 @@ body{
   margin-right: 10px;
 }
 
-.userstable{
+.user-table{
   margin-top: 30px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.userstable .col1{
+.user-table .col1{
   width: 110px;
 }
-.userstable .col2{
+.user-table .col2{
   width: 240px;
 }
-.userstable .col3{
+.user-table .col3{
   width:300px;
 }
-.userstable .col4{
+.user-table .col4{
   width: 500px;
 }
 
@@ -55,4 +58,29 @@ body{
   margin-left: 5px;
   padding: 5px;
   font-family: sans-serif;
+}
+
+.product-table{
+  margin-top: 30px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.product-table .col1{
+  width: 60px;
+}
+.product-table .col2{
+  width: 500px;
+}
+.product-table .col3{
+  width:120px;
+}
+.product-table .col4{
+  width: 120px;
+}
+
+.product-table .col5{
+  width: 120px;
 }

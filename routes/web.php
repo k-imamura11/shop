@@ -26,6 +26,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
     Route::get('/', 'Admin\AdminsController@getIndex')-> name('admin.index');
     Route::get('userlist', 'Admin\UserManagementsController@getUserList')-> name('admin.userlist');
     Route::get('adminlist', 'Admin\UserManagementsController@getAdminList')-> name('admin.adminlist');
+    Route::get('productlist', 'Admin\ProductManagementsController@getProductList')-> name('admin.productlist');
 });
 
 //ユーザー画面（認証必要）
