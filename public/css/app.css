@@ -91,3 +91,7 @@ body {
   margin-top: 0px;
   margin-bottom: 46px;
 }
+
+#dropdownMenu{
+  width: 110px;
+}

@@ -10,7 +10,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script type="text/javascript" src="{{ asset('/js/jquery.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('/js/bootstrap.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('/js/main.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/js/main.js?') . date('F d Y H:i:s.', filemtime('js/main.js')) }}"></script>
   </head>
   <body>
     <div class="header">

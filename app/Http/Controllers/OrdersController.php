@@ -20,7 +20,7 @@ class OrdersController extends Controller
       return view('shop.order', ['products' => $products]);
     }
 
-    //日付切り替え用　Todo暫定対応
+    //日付検索
     public function changeDate($tar_date = null){
       $products = DB::table('products')
                   ->select('orders.user_id', 'orders.product_id', 'orders.order_price', 'orders.order_quantity', 'orders.created_at as date', 'products.*')
@@ -34,8 +34,8 @@ class OrdersController extends Controller
       return view('shop.order', ['products' => $products]);
     }
 
-    public function getDateList(Request $request){
-      //プルダウンで6カ月前までの日付を表示
+    public function getDateList(){
+      //6カ月前までの日付を取得
       //日付は月の最初の日付で計算
         $start_date = date('Y-m-01', time());
         $ux_start_date = strtotime($start_date);

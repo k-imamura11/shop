@@ -12,13 +12,12 @@
           <span class="caret"></span>
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
-          <li><a href="" class="day0"></a></li>
-          <li><a href="" class="day1"></a></li>
-          <li><a href="" class="day2"></a></li>
-          <li><a href="" class="day3"></a></li>
-          <li><a href="" class="day4"></a></li>
-          <li><a href="" class="day5"></a></li>
-          <li><a href="" class="day6"></a></li>
+          <li><a class="day0"></a></li>
+          <li><a class="day1"></a></li>
+          <li><a class="day2"></a></li>
+          <li><a class="day3"></a></li>
+          <li><a class="day4"></a></li>
+          <li><a class="day5"></a></li>
         </ul>
       </div>
 

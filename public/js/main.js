@@ -1,4 +1,5 @@
 (function(){
+  //購入履歴の日付切り替え
   $(document).ready(function(){
     $.ajax({
         datatype : 'json',
@@ -6,9 +7,9 @@
         type : "GET",
     }).done(function(response) {
       var array = JSON.parse(response);
-      alert(array[1]);
-      for(var i=0; i < 6; i++){
-        $('.days' +i).innerHTML = array[i];
+      for(var i=0; i < array.length; i++){
+        $('.day' + i).text(array[i]);
+        $('.day' + i).attr('href', '/order/' + array[i]);
       }
     }).fail(function(XMLHttpRequest, textStatus, errorThrown) {
         console.log(XMLHttpRequest.message);
