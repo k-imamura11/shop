@@ -27,6 +27,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
     Route::get('userlist', 'Admin\UserManagementsController@getUserList')-> name('admin.userlist');
     Route::get('adminlist', 'Admin\UserManagementsController@getAdminList')-> name('admin.adminlist');
     Route::get('productlist', 'Admin\ProductManagementsController@getProductList')-> name('admin.productlist');
+    Route::get('productmanage', 'Admin\ProductManagementsController@getProductManage')-> name('admin.productmanage');
+    Route::get('upload', 'Admin\ProductManagementsController@getUpload')-> name('admin.upload');
+    Route::post('upload', 'Admin\ProductManagementsController@postUpload')-> name('admin.upload');
 });
 
 //ユーザー画面（認証必要）
