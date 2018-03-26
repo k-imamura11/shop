@@ -52,28 +52,25 @@
       </div>
       <div class="col-md-4">
         <div class="form-group clearfix">
-          <label>写真１</label>
-          <a href="" class="thumbnail">
-            <img class="form-control preview" data-src="holder.js/200x200/gray">
-    		  </a>
           <label for="image">写真1 アップロード</label>
-          <input class="btn btn-default form" type="file" name="image_url_1">
+          <input class="btn btn-default form" type="file" accept=".jpg,.gif,.png,image/gif,image/jpeg,image/png" name="image_url_1">
+          <div class="thumbnail">
+            <img data-src="holder.js/200x200/gray">
+          </div>
         </div>
         <div class="form-group clearfix">
-          <label>写真２</label>
-          <a href="" class="thumbnail">
-            <img class="form-control preview" name="image_url_2" data-src="holder.js/200x200/gray">
-    		  </a>
           <label for="image">写真2 アップロード</label>
-          <input class="btn btn-default form" type="file" name="image_url_2">
+          <input class="btn btn-default form" type="file" accept=".jpg,.gif,.png,image/gif,image/jpeg,image/png" name="image_url_2">
+          <div href="" class="thumbnail">
+            <img data-src="holder.js/200x200/gray">
+          </div>
         </div>
         <div class="form-group clearfix">
-          <label>写真３</label>
-          <a href="" class="thumbnail">
-    			  <img class="form-control preview" name="image_url_3" data-src="holder.js/200x200/gray">
-    		  </a>
           <label for="image">写真3 アップロード</label>
-          <input class="btn btn-default form" type="file" name="image_url_3">
+          <input class="btn btn-default form" type="file" accept=".jpg,.gif,.png,image/gif,image/jpeg,image/png" name="image_url_3">
+          <div class="thumbnail">
+            <img data-src="holder.js/200x200/gray">
+          </div>
         </div>
       </div>
     </div>
@@ -93,12 +90,21 @@
     var file = e.target.files[0];
     //FileReaderのインスタンス
     var reader = new FileReader();
-    var preview = $('.preview');
+    var preview = e.target.nextElementSibling.firstElementChild;
     //fileのurlを読み込む
     reader.readAsDataURL(file);
-
+    //MIMEタイプチェック
+    if(file.type !== 'image/jpeg' && file.type !== 'image/png' && file.type !== 'image/gif'){
+      alert('拡張子はjpeg,png,gifのみ有効です。');
+      return false;
+    }
+    //ファイルサイズチェック(2MBまで)
+    if(file.size > 2000000){
+      alert('ファイルサイズが2MBを超えています。2MB以下のファイルを指定してください。')
+      return false;
+    }
     reader.addEventListener('load', function(){
-      preview.attr('src', reader.result);
+      preview.src = reader.result;
     });
   });
 })();
