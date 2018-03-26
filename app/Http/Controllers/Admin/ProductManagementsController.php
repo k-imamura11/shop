@@ -66,8 +66,39 @@ class ProductManagementsController extends Controller
 
     //商品情報追加　post
     public function postAddProduct(Request $request){
-      // $this-> postUpload('image_url_1');
+      //画像アップロード
+      $this-> postUpload('image_url_1');
 
+      $this-> validate($request, [
+        'title' => 'required|max:50',
+        'genre' => 'required',
+        'quantity' => 'required|numeric',
+        'price' => 'required|numeric',
+        'image_url_1' => 'required',
+      ]);
+
+      $title = $request-> input['title'];
+      $genre = $request-> input['genre'];
+      $quantity = $request-> input['quantity'];
+      $price = $request-> input['price'];
+      // $detail = $request-> input['detail'];
+      // $description = $request-> input['description'];
+      $image_url_1 = date('Ymd-His') .$_FILES['image_url_1']['name'];
+      // $image_url_2 = date('Ymd-His') .$_FILES['image_url_2']['name'];
+      // $image_url_3 = date('Ymd-His') .$_FILES['image_url_3']['name'];
+
+      //Productのインスタンス
+      $product = new Product;
+
+      $product-> title = $title;
+      $product-> genre = $genre;
+      $product-> quantity = $quantity;
+      $product-> price = $price;
+      // $product-> detail = $detail;
+      // $product-> description = $description;
+      $product-> image_url_1 = $image_url_1;
+      // $product-> image_url_2 = $image_url_2;
+      // $product-> image_url_3 = $image_url_3;
 
       return redirect()-> route('admin.productmanage');
     }

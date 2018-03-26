@@ -16,13 +16,13 @@
           <div class="col-xs-12">
             <div class="form-group">
               <label for="title">商品名</label>
-              <input type="text" name="title" class="form-control">
+              <input type="text" name="title" class="form-control" required>
             </div>
           </div>
           <div class="col-xs-12">
             <div class="form-group">
               <label for="genre">ジャンル</label>
-              <select name="genre" class="form-control">
+              <select name="genre" class="form-control" required>
                 <option>メンズファッション</option>
                 <option>レディースファッション</option>
                 <option>キッズ・ベビー</option>
@@ -33,13 +33,13 @@
           <div class="col-xs-6">
             <div class="form-group">
               <label for="quantity">数量</label>
-              <input type="text" name="quantity" class="form-control">
+              <input type="text" name="quantity" class="form-control" required>
             </div>
           </div>
           <div class="col-xs-6">
             <div class="form-group">
               <label for="price">価格</label>
-              <input type="text" name="price" class="form-control">
+              <input type="text" name="price" class="form-control" required>
             </div>
           </div>
           <div class="col-xs-12">
@@ -50,8 +50,8 @@
           </div>
           <div class="col-xs-12">
             <div class="form-group">
-              <label for="discription">商品説明</label>
-              <textarea name="discription" cols="100" rows="15" class="form-control"></textarea>
+              <label for="description">商品説明</label>
+              <textarea name="description" cols="100" rows="15" class="form-control"></textarea>
             </div>
           </div>
         </div>
@@ -59,7 +59,7 @@
       <div class="col-md-4">
         <div class="form-group clearfix">
           <label for="image">写真1 アップロード</label>
-          <input class="btn btn-default form" type="file" name="image_url_1">
+          <input class="btn btn-default form" type="file" name="image_url_1" accept=".jpg,.gif,.png,image/gif,image/jpeg,image/png" required>
           <div class="thumbnail">
             <img data-src="holder.js/200x200/gray">
           </div>
