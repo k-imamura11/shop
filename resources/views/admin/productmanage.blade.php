@@ -3,7 +3,13 @@
 @endsection
 @section('content')
 <div class="container">
-  <form method="post">
+  @if(Session::has('message'))
+  <div class="alert alert-danger">{{ Session::get('message') }}</div>
+  @endif
+  @if(Session::has('success_message'))
+  <div class="alert alert-success">{{ Session::get('success_message') }}</div>
+  @endif
+  <form method="post" action='/admin/add-product' enctype="multipart/form-data">
     <div class="row">
       <div class="col-md-8">
         <div class="row">
@@ -53,7 +59,7 @@
       <div class="col-md-4">
         <div class="form-group clearfix">
           <label for="image">写真1 アップロード</label>
-          <input class="btn btn-default form" type="file" accept=".jpg,.gif,.png,image/gif,image/jpeg,image/png" name="image_url_1">
+          <input class="btn btn-default form" type="file" name="image_url_1">
           <div class="thumbnail">
             <img data-src="holder.js/200x200/gray">
           </div>
@@ -81,6 +87,7 @@
         <button role="button" class="btn btn-success" style="width: 100%">登録</button>
       </div>
     </div>
+    {{ csrf_field() }}
   </form>
   <br>
 </div>

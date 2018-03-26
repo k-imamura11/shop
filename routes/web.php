@@ -28,8 +28,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
     Route::get('adminlist', 'Admin\UserManagementsController@getAdminList')-> name('admin.adminlist');
     Route::get('productlist', 'Admin\ProductManagementsController@getProductList')-> name('admin.productlist');
     Route::get('productmanage', 'Admin\ProductManagementsController@getProductManage')-> name('admin.productmanage');
-    Route::get('upload', 'Admin\ProductManagementsController@getUpload')-> name('admin.upload');
-    Route::post('upload', 'Admin\ProductManagementsController@postUpload')-> name('admin.upload');
+    Route::get('add-product', 'Admin\ProductManagementsController@getAddProduct')-> name('admin.add-product');
+    Route::post('add-product', 'Admin\ProductManagementsController@postAddProduct')-> name('admin.add-product');
 });
 
 //ユーザー画面（認証必要）
