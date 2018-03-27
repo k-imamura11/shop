@@ -22,7 +22,7 @@
           <div class="col-xs-12">
             <div class="form-group">
               <label for="genre">ジャンル</label>
-              <select name="genre" class="form-control" required>
+              <select name="genre" class="form-control">
                 <option>メンズファッション</option>
                 <option>レディースファッション</option>
                 <option>キッズ・ベビー</option>

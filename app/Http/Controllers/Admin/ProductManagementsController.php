@@ -28,7 +28,6 @@ class ProductManagementsController extends Controller
 
     //画像アップロード(共通処理)
     public function postUpload($fname){
-      try{
           if(is_uploaded_file($_FILES[$fname]['tmp_name'])){
             //エラーコード2　ファイルサイズ超過の場合
             if($_FILES[$fname]['error'] === 2){
@@ -47,16 +46,13 @@ class ProductManagementsController extends Controller
               move_uploaded_file($_FILES[$fname]['tmp_name'], 'images/' .date('Ymd-His') .$_FILES[$fname]['name']);
               //権限は今のところ変更いらない
               // chmod('images/' .date('Ymd-His') .$_FILES[$fname]['name'], 777);
-              Session::flash('success_message', 'アップロード完了');
+              // Session::flash('success_message', 'アップロード完了');
             //上記以外の場合
             }else{
               Session::flash('message', 'ファイルアップロード失敗');
             }
           }
-        //例外処理は念のため
-        }catch(\Exception $e){
-          Session::flash('message', $e-> getMessage());
-        }
+
       }
 
     //商品情報追加　get
@@ -66,39 +62,78 @@ class ProductManagementsController extends Controller
 
     //商品情報追加　post
     public function postAddProduct(Request $request){
-      //画像アップロード
-      $this-> postUpload('image_url_1');
 
-      $this-> validate($request, [
-        'title' => 'required|max:50',
-        'genre' => 'required',
-        'quantity' => 'required|numeric',
-        'price' => 'required|numeric',
-        'image_url_1' => 'required',
-      ]);
+      DB::beginTransaction();
 
-      $title = $request-> input['title'];
-      $genre = $request-> input['genre'];
-      $quantity = $request-> input['quantity'];
-      $price = $request-> input['price'];
-      // $detail = $request-> input['detail'];
-      // $description = $request-> input['description'];
-      $image_url_1 = date('Ymd-His') .$_FILES['image_url_1']['name'];
-      // $image_url_2 = date('Ymd-His') .$_FILES['image_url_2']['name'];
-      // $image_url_3 = date('Ymd-His') .$_FILES['image_url_3']['name'];
+      try{
+        //画像アップロード
+        $this-> postUpload('image_url_1');
+        $this-> postUpload('image_url_2');
+        $this-> postUpload('image_url_3');
 
-      //Productのインスタンス
-      $product = new Product;
+        //POSTデータ取得
+        $title = $_POST['title'];
+        $genres = $_POST['genre'];
+        $quantity = $_POST['quantity'];
+        $price = $_POST['price'];
+        $detail = $_POST['detail'];
+        $description = $_POST['description'];
+        $image_url_1 = $_FILES['image_url_1']['name'];
+        $image_url_2 = $_FILES['image_url_2']['name'];
+        $image_url_3 = $_FILES['image_url_3']['name'];
 
-      $product-> title = $title;
-      $product-> genre = $genre;
-      $product-> quantity = $quantity;
-      $product-> price = $price;
-      // $product-> detail = $detail;
-      // $product-> description = $description;
-      $product-> image_url_1 = $image_url_1;
-      // $product-> image_url_2 = $image_url_2;
-      // $product-> image_url_3 = $image_url_3;
+        // $this-> validate($_POST, [
+        //   'title' => 'required|max:50'
+        //   'quantity' => 'required|numeric',
+        //   'price' => 'required|numeric',
+        // ]);
+
+        //DBへinsert
+        //Productのインスタンス
+        $product = new Product;
+
+        $product-> title = $title;
+
+        //genreの紐づけ
+        switch($genres){
+          case 'メンズファッション':
+            $genre = 1;
+            break;
+          case 'レディースファッション':
+            $genre = 2;
+            break;
+          case 'キッズ・ベビー':
+            $genre = 3;
+            break;
+          case '時計・アクセサリー':
+            $genre = 4;
+            break;
+        }
+
+        $product-> genre = $genre;
+        $product-> quantity = $quantity;
+        $product-> price = $price;
+        $product-> detail = $detail;
+        $product-> description = $description;
+        $product-> image_url_1 = date('Ymd-His') .$image_url_1;
+        if(!empty($image_url_2)){
+          $product-> image_url_2 = date('Ymd-His') .$image_url_2;
+        }
+        if(!empty($image_url_3)){
+          $product-> image_url_3 = date('Ymd-His') .$image_url_3;
+        }
+
+        $product-> save();
+        Session::flash('success_message', '商品の登録が完了しました。');
+
+      DB::commit();
+
+      }catch(\Exception $e){
+        return redirect()-> route('admin.productmanage')-> with('message', $e-> getMessage());
+
+      DB::rollBack();
+
+      }
 
       return redirect()-> route('admin.productmanage');
     }

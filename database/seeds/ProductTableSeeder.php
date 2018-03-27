@@ -13,7 +13,7 @@ class ProductTableSeeder extends Seeder
     {
       DB::table('products')->insert([
           'title' => 'Tendence FLASH TDC-TG530008 メンズ 腕時計',
-          'discription' => 'Tendence
+          'description' => 'Tendence
                           2007年、時計作りの最高峰のスイスで誕生した「Tendence」。
                           「未だかつて見たことも無い、大胆でオリジナリティー溢れるウォッチ」をコンセプトに、圧倒的なインパクトを持つオーバーサイズのケースや、カラフルな配色のイタリアンデザインと、高品質・高精度のスイステクノロジーの融合が最大の特徴です。
                           FLASH
@@ -41,7 +41,7 @@ class ProductTableSeeder extends Seeder
         ]);
       DB::table('products')->insert([
           'title' => 'Angel Clover SEA CRUISE メンズ 腕時計',
-          'discription' => 'Angel Clover
+          'description' => 'Angel Clover
                         ファッション雑誌に取り上げられて火が付いた「Angel Clover」。
                         今も各メディアで特集ページが組まれる人気腕時計ブランドです。
                         お洒落と言われるより、カッコイイと言われる男がテーマになっており、アパレルやアクセサリーなど様々なブランドとコラボレーションしてることでも有名です。
@@ -62,7 +62,7 @@ class ProductTableSeeder extends Seeder
         ]);
       DB::table('products')->insert([
           'title' => 'CROSS メンズ 腕時計',
-          'discription' => 'CROSS
+          'description' => 'CROSS
                         米国最長の歴史を誇る筆記具ブランド「CROSS」。
                         1846年創業の老舗ブランドは米国で26・英国で7つの特許を取得しており、歴史に裏付けされた技術が魅力のブランドです。
                         アメリカの歴代大統領が署名に使ってきた筆記具ブランドとしても有名で、現米国大統領のオバマ氏が就任時の署名に使ったのも「CROSS」でした。
@@ -85,7 +85,7 @@ class ProductTableSeeder extends Seeder
         ]);
       DB::table('products')->insert([
           'title' => 'CROSS メンズ 腕時計',
-          'discription' => 'CROSS
+          'description' => 'CROSS
                         米国最長の歴史を誇る筆記具ブランド「CROSS」。
                         1846年創業の老舗ブランドは米国で26・英国で7つの特許を取得しており、歴史に裏付けされた技術が魅力のブランドです。
                         アメリカの歴代大統領が署名に使ってきた筆記具ブランドとしても有名で、現米国大統領のオバマ氏が就任時の署名に使ったのも「CROSS」でした。
@@ -110,7 +110,7 @@ class ProductTableSeeder extends Seeder
         ]);
       DB::table('products')->insert([
           'title' => 'SAINTS(セインツ)/ツイストメンズバングル',
-          'discription' => 'プレートのセンターをツイストさせたシンプルなデザインながら変化も楽しめるバングルブレスです。
+          'description' => 'プレートのセンターをツイストさせたシンプルなデザインながら変化も楽しめるバングルブレスです。
                         着けやすくてどんなコーディネイトにもマッチします。',
           'detail' => '※実際の商品と仕様、加工、サイズが若干異なる場合がございます。',
           'image_url_1' => 'accessories4_1.png',
@@ -122,7 +122,7 @@ class ProductTableSeeder extends Seeder
         ]);
       DB::table('products')->insert([
           'title' => 'SAINTS(セインツ)/セヴンスターレディースバングル',
-          'discription' => 'セブンスターの刻印でトレンドのモチーフをポップデザインに仕上げたバングルブレスはシンプルなカジュアルファッションシーンに花をそえます。
+          'description' => 'セブンスターの刻印でトレンドのモチーフをポップデザインに仕上げたバングルブレスはシンプルなカジュアルファッションシーンに花をそえます。
                         また、七つの善意をシンボリックにデザインしたスターブレスはラッキーアイコンです。
                         (博愛、希望、信仰、知恵、正義、勇気、節制　が七つの善意)',
           'detail' => '※実際の商品と仕様、加工、サイズが若干異なる場合がございます。',
@@ -135,7 +135,7 @@ class ProductTableSeeder extends Seeder
         ]);
       DB::table('products')->insert([
           'title' => '【チャイハネ】ギャラックMENSリング',
-          'discription' => '銀河をイメージしたメンズサイズのマーブルリング。
+          'description' => '銀河をイメージしたメンズサイズのマーブルリング。
                         上を向いて歩けば幸運をつかむ事ができる、という力強いメッセージが刻まれています。',
           'detail' => '※こちらの商品は1点1点職人による手作りとなります。
                     その為、形や色の出方など若干異なる場合がございます。
@@ -149,7 +149,7 @@ class ProductTableSeeder extends Seeder
         ]);
       DB::table('products')->insert([
           'title' => '【チャイハネ】メッシュレザーリング',
-          'discription' => '太めの編みレザーにコインを巻きつけたようなメンズライクなデザイン。
+          'description' => '太めの編みレザーにコインを巻きつけたようなメンズライクなデザイン。
                         編みレザーは弾力のある質感なので指にフィットします。',
           'detail' => '※こちらの商品は1点1点職人による手作りとなります。
                     その為、形や色合いなど若干異なる場合がございます。あらかじめご了承ください。',
@@ -162,7 +162,7 @@ class ProductTableSeeder extends Seeder
         ]);
       DB::table('products')->insert([
           'title' => '【チャイハネ】ネイティブ調ジオメ柄メンズリング',
-          'discription' => '男らしく存在感のある幅太リング。
+          'description' => '男らしく存在感のある幅太リング。
                         中央のスタッズから刻まれる力強いネイティブジオメ柄がポイントです',
           'detail' => '※こちらの商品は1点1点職人による手作りとなります。
                     その為、形や色合いなど若干異なる場合がございます。あらかじめご了承ください。',
@@ -175,7 +175,7 @@ class ProductTableSeeder extends Seeder
         ]);
       DB::table('products')->insert([
           'title' => 'USED加工デニム 3RD TYPE Gジャン',
-          'discription' => '『人気復権中のGジャンを、スタイリッシュに着こなす』
+          'description' => '『人気復権中のGジャンを、スタイリッシュに着こなす』
 
                         ショートジャケットの再評価も手伝って、改めて人気が高まっているGジャン。
                         こちらはデニムジャケットの代名詞であり、“ サード ” の愛称でも知られる1960年代の傑作をモチーフにした逸品です。
@@ -197,7 +197,7 @@ class ProductTableSeeder extends Seeder
         ]);
       DB::table('products')->insert([
           'title' => 'ラムレザーボタンダウン シングルライダースジャケット',
-          'discription' => 'このアイテムはキッズ商品です',
+          'description' => 'このアイテムはキッズ商品です',
           'detail' => '※このアイテムは返品・交換対象外商品です。',
           'image_url_1' => 'kids1_1.png',
           'image_url_2' => 'kids1_2.png',
@@ -208,7 +208,7 @@ class ProductTableSeeder extends Seeder
         ]);
       DB::table('products')->insert([
           'title' => 'プリマロフトナイロンタフタ フーデットジャケット',
-          'discription' => 'このアイテムはキッズ商品です',
+          'description' => 'このアイテムはキッズ商品です',
           'detail' => '※このアイテムは返品・交換対象外商品です。',
           'image_url_1' => 'kids3_1.png',
           'image_url_2' => 'kids3_2.png',
@@ -219,7 +219,7 @@ class ProductTableSeeder extends Seeder
         ]);
       DB::table('products')->insert([
           'title' => 'SOUND VIBRATION pt スウェットトレーナー ',
-          'discription' => 'このアイテムはキッズ商品です',
+          'description' => 'このアイテムはキッズ商品です',
           'detail' => '※このアイテムは返品・交換対象外商品です。',
           'image_url_1' => 'kids5_1.png',
           'image_url_2' => 'kids5_2.png',
@@ -230,7 +230,7 @@ class ProductTableSeeder extends Seeder
         ]);
       DB::table('products')->insert([
           'title' => 'ラムレザー スタンドカラーシングルライダース ジャケット',
-          'discription' => '『細部にまでこだわりが息づく、一生モノの本格ライダーズ』
+          'description' => '『細部にまでこだわりが息づく、一生モノの本格ライダーズ』
 
                           スッキリとした印象を与えるスタンドカラーや、ハの字になった腰のスラッシュポケットを特徴とする、シングルのライダーズジャケット。
                           フロント＆袖口にはオールドファスナーの代名詞であるタロンジッパーを採用。
@@ -257,7 +257,7 @@ class ProductTableSeeder extends Seeder
         ]);
       DB::table('products')->insert([
           'title' => 'ターンカラーリアルレザーJK',
-          'discription' => 'リアルレザーだからこそ着まわしやすいデザインにしました。デニムにもワンピースにも合わせやすい一枚です。',
+          'description' => 'リアルレザーだからこそ着まわしやすいデザインにしました。デニムにもワンピースにも合わせやすい一枚です。',
           'detail' => '',
           'image_url_1' => 'ladies1_1.png',
           'image_url_2' => 'ladies1_2.png',
@@ -268,7 +268,7 @@ class ProductTableSeeder extends Seeder
         ]);
       DB::table('products')->insert([
           'title' => 'ビッグカラーコート',
-          'discription' => '毛100％を使用したあたたかな上品コートです。
+          'description' => '毛100％を使用したあたたかな上品コートです。
                         大きな襟は優雅さを感じさせるデザインになっています。
                         付属の共布ベルトでウエストをマークしても女っぷりが上がります！
                         やさしげで上品なカラー展開にも注目です。
@@ -287,7 +287,7 @@ class ProductTableSeeder extends Seeder
         ]);
       DB::table('products')->insert([
           'title' => 'ダンボールダブルフェイスジャケット',
-          'discription' => 'ダンボールニットのダブルフェイスジャケット。
+          'description' => 'ダンボールニットのダブルフェイスジャケット。
                         薄手の素材を使用しているため、さっと羽織るのにちょうどよくカーディガン感覚で使える一枚となっています。
                         ダブルフェイスで裏地が見えてもおしゃれなデザインに。
                         長めの丈はヒップも覆って、スタイルカバーも安心です。
@@ -306,7 +306,7 @@ class ProductTableSeeder extends Seeder
         ]);
       DB::table('products')->insert([
           'title' => 'ファースヌード付きノーカラーコート',
-          'discription' => '',
+          'description' => '',
           'detail' => '※このアイテムは返品・交換対象外商品です。',
           'image_url_1' => 'ladies4_1.png',
           'image_url_2' => 'ladies4_2.png',
@@ -317,7 +317,7 @@ class ProductTableSeeder extends Seeder
         ]);
       DB::table('products')->insert([
           'title' => '【軽×暖プレミアム】ベルト付きビーバーチェスターコート',
-          'discription' => '軽くて暖かいピンクアドベのプレミアムコートシリーズ。
+          'description' => '軽くて暖かいピンクアドベのプレミアムコートシリーズ。
 
                         こちらはなめらかな起毛感が特徴のビーバー素材で仕上げたチェスターコート。
 
@@ -343,7 +343,7 @@ class ProductTableSeeder extends Seeder
         ]);
       DB::table('products')->insert([
           'title' => 'mn1671-ルーズシルエットローゲージワッフルニット',
-          'discription' => '袖口・裾・襟口にクラッシュ加工を施した昨年大好評をいただいたルーズニット。
+          'description' => '袖口・裾・襟口にクラッシュ加工を施した昨年大好評をいただいたルーズニット。
                         春らしくローゲージで編み・ワイドなシルエットに仕上げました。
                         ロング丈のインナーと合わせたり・スキニーのボトムスと合わせるのが〇。
                         ',
@@ -362,7 +362,7 @@ class ProductTableSeeder extends Seeder
         ]);
       DB::table('products')->insert([
           'title' => 'WEB限定 スーパービッグ 12ozヘビーウェイトスウェット プルオーバーパーカー',
-          'discription' => '広めにとった身幅と思い切りの良い肩落ち具合が織りなす
+          'description' => '広めにとった身幅と思い切りの良い肩落ち具合が織りなす
                         オーバーサイズ感はビッグシルエット好きにはたまらないことでしょう。
 
                         オーバーサイズのインナーにはオーバーサイズのスウェットが必須です。
@@ -385,7 +385,7 @@ class ProductTableSeeder extends Seeder
         ]);
       DB::table('products')->insert([
           'title' => 'mcg1993 - 星柄カーディガン',
-          'discription' => '181 cm 66 kgのモデルがＭサイズを着用
+          'description' => '181 cm 66 kgのモデルがＭサイズを着用
 
                         春夏用（綿麻）素材へと変更しカーディガンタイプが再リリース。
 
@@ -411,7 +411,7 @@ class ProductTableSeeder extends Seeder
         ]);
       DB::table('products')->insert([
           'title' => 'バイカラーニットプルオーバー(HARE)',
-          'discription' => '配色デザインがポイントのバイカラーデザインニット。
+          'description' => '配色デザインがポイントのバイカラーデザインニット。
                         パッチワークのように縫製を加えたデザイン、
                         つなぎ目は生地が被さるように縫製しています。
                         配色ごとに編み方に変化を加え、
@@ -430,7 +430,7 @@ class ProductTableSeeder extends Seeder
         ]);
       DB::table('products')->insert([
           'title' => 'ヤクウールニットプルオーバー(HARE)',
-          'discription' => 'コストパフォーマンスが魅力のウールニット。
+          'description' => 'コストパフォーマンスが魅力のウールニット。
                         豊かな伸縮性、ベーシックなデザインながら緩く仕上げたサイジングが魅力のアイテム。
                         素材にはヤクの毛を一部使用。上質な内側の毛はなめらかで、保温性に優れています。
                         一枚でも、アウターのインにも使い勝手も抜群です。
@@ -446,7 +446,7 @@ class ProductTableSeeder extends Seeder
         ]);
       DB::table('products')->insert([
           'title' => 'AVIREX/アヴィレックス/メンズ/MA-1 COMMERCIAL LOGO/MA-1　コマーシャル　ロゴ',
-          'discription' => 'オリジナルの「AVIREX」のアップリケロゴを取り付けたロングセラーMA-1★
+          'description' => 'オリジナルの「AVIREX」のアップリケロゴを取り付けたロングセラーMA-1★
 
                         このモデルは60年代に採用されたオレンジ色のライニングとフラップ付きポケットを兼ね備えた一般的なMA-1ディティールのコマーシャル（民間向け）モデルの背中に
                         オリジナルの「AVIREX」のアップリケロゴを取り付けたモデルです。
@@ -480,7 +480,7 @@ class ProductTableSeeder extends Seeder
         ]);
       DB::table('products')->insert([
           'title' => 'エコスエードMA-1',
-          'discription' => '驚くほどのしっとりとした柔らかな着心地と、水や汚れにも強く、イージーケアなのが魅力です。
+          'description' => '驚くほどのしっとりとした柔らかな着心地と、水や汚れにも強く、イージーケアなのが魅力です。
                         少しタイト目なつくりなのでTシャツやシャツの上に羽織って頂いてもスッキリとしたシルエットで着て頂けます。
                         春や秋は一枚でライトアウターとして、冬にはオーバーコートの中に
                         アウターオンアウターとして重ねてお楽しみ頂けるアイテムです。
@@ -495,7 +495,7 @@ class ProductTableSeeder extends Seeder
         ]);
       DB::table('products')->insert([
           'title' => 'ラムレザーシングルライダースジャケット',
-          'discription' => '柔らかい質感が特徴のラムレザーを使用した今期大好評を頂いておりますライダースジャケットの追加分が再入荷！
+          'description' => '柔らかい質感が特徴のラムレザーを使用した今期大好評を頂いておりますライダースジャケットの追加分が再入荷！
 
                         《素材》
                         リアルレザーを使用しながらも、デイリーに落とし込み易い柔らかい着用感が特徴のラムレザーを採用。
@@ -525,7 +525,7 @@ class ProductTableSeeder extends Seeder
         ]);
       DB::table('products')->insert([
           'title' => '湿式PUレザースタンドライダースジャケット',
-          'discription' => '本革と見違えるほどの湿式のウェットなフェイクレザーの
+          'description' => '本革と見違えるほどの湿式のウェットなフェイクレザーの
                         上品な表情がワンランク上の大人のスタイリングを実現！！
 
                         スタイリッシュなスタンドタイプ！
@@ -548,7 +548,7 @@ class ProductTableSeeder extends Seeder
         ]);
       DB::table('products')->insert([
           'title' => 'インクジェットレザースカジャン',
-          'discription' => 'シープレザーを使用したレザースカジャンに、大胆にもプリント加工を施した逸品。
+          'description' => 'シープレザーを使用したレザースカジャンに、大胆にもプリント加工を施した逸品。
                         他には無い個性的なレザージャケットになります。
                         ',
           'detail' => '',
