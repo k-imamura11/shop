@@ -39,6 +39,7 @@ class ProductsController extends Controller
     $products = DB::table('products')
                     ->where('genre', '=', $id)
                     ->where('hideflag', '=', 0)
+                    ->orderby('updated_at', 'desc')
                     ->paginate(9);
 
     //$genreにカテゴリを紐づけ

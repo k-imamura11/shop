@@ -4,7 +4,7 @@
 @section('content')
 <div class="container">
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-4 col-xs-12">
       <div class="detail-thumbnail">
         <div class="thumbnail-main">
           <img class="main" src="{{ asset('/images/'. $product-> image_url_1) }}"></img>
@@ -21,7 +21,7 @@
       </div>
     </div>
 
-    <div class="col-md-8">
+    <div class="col-md-8 col-xs-12">
       <div class="panel panel-default">
         <div class="detail-content clearfix">
           <h3 class="title">{{ $product-> title }}</h3>

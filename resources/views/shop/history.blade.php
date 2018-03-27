@@ -11,7 +11,7 @@
           <div class="col-md-12">
             @if(Session::has('product'))
             @foreach($products as $data)
-            <div class="col-md-3">
+            <div class="col-md-3 col-xs-6">
               <div class="thumbnail">
                 <a href="{{ route('shop.add-history', ['id' => $data['item']-> id]) }}">
                   <img class="image" src="{{ asset('/images/' .$data['item']-> image_url_1) }}"></img>

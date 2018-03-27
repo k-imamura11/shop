@@ -29,7 +29,7 @@
 
           @if(Session::has('cart'))
           @foreach($products as $data)
-          <div class="col-md-4">
+          <div class="col-md-4 col-xs-6">
             <div class="thumbnail">
               <a href="">
                 <img class="image" src=""></img>

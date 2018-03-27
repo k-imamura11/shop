@@ -4,7 +4,7 @@
 @section('content')
 <div class="container">
   <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-3 col-xs-12">
       <div class="panel panel-default">
         <div class="panel-heading">カテゴリ</div>
           <ul class="nav nav-pills nav-stacked">
@@ -16,14 +16,14 @@
           </ul>
       </div>
     </div>
-    <div class="col-md-9">
+    <div class="col-md-9 col-xs-12">
       <div class="panel panel-default">
         <div class="panel-heading">{{ $genre }}</div>
         <div class="row">
           <div class="col-md-12">
           @if($products)
           @foreach($products as $data)
-          <div class="col-md-4">
+          <div class="col-md-4 col-xs-6">
             <div class="thumbnail">
               <a href="{{ route('shop.add-history', ['id' => $data-> id]) }}">
                 <img class="image" src="{{ asset('/images/'.$data-> image_url_1) }}"></img>
