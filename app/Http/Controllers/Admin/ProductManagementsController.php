@@ -61,32 +61,32 @@ class ProductManagementsController extends Controller
     }
 
     //商品情報追加　post
-    public function postAddProduct(Request $request){
+    public function postAddProduct(){
+
+      //POSTデータ取得
+      if(!empty($_POST)){
+        $title = $this-> formCheck($_POST['title']);
+        $genres = $_POST['genre'];
+        $quantity = $this->formCheck($_POST['quantity']);
+        $price = $this-> formCheck($_POST['price']);
+        $detail = $this-> formCheck($_POST['detail']);
+        $description = $this-> formCheck($_POST['description']);
+        $image_url_1 = $_FILES['image_url_1']['name'];
+        $image_url_2 = $_FILES['image_url_2']['name'];
+        $image_url_3 = $_FILES['image_url_3']['name'];
+      }
+
+      //フォームの入力チェック
+      $title = $this-> textCheck($title);
+      $price = $this-> numCheck($price);
+      $quantity = $this-> numCheck($quantity);
 
       DB::beginTransaction();
-
       try{
         //画像アップロード
         $this-> postUpload('image_url_1');
         $this-> postUpload('image_url_2');
         $this-> postUpload('image_url_3');
-
-        //POSTデータ取得
-        $title = $_POST['title'];
-        $genres = $_POST['genre'];
-        $quantity = $_POST['quantity'];
-        $price = $_POST['price'];
-        $detail = $_POST['detail'];
-        $description = $_POST['description'];
-        $image_url_1 = $_FILES['image_url_1']['name'];
-        $image_url_2 = $_FILES['image_url_2']['name'];
-        $image_url_3 = $_FILES['image_url_3']['name'];
-
-        // $this-> validate($_POST, [
-        //   'title' => 'required|max:50'
-        //   'quantity' => 'required|numeric',
-        //   'price' => 'required|numeric',
-        // ]);
 
         //DBへinsert
         //Productのインスタンス
@@ -127,15 +127,68 @@ class ProductManagementsController extends Controller
         Session::flash('success_message', '商品の登録が完了しました。');
 
       DB::commit();
-
       }catch(\Exception $e){
-        return redirect()-> route('admin.productmanage')-> with('message', $e-> getMessage());
+        logger($e-> getMessage());
+        //フォームエラーがある場合は表示しない
+        if(!Session::has('message')){
+          Session::flash('message', '登録できませんでした。');
+        }
 
       DB::rollBack();
-
       }
 
       return redirect()-> route('admin.productmanage');
+    }
+
+    //フォーム入力データを整形
+    public function formCheck($string){
+      $string = trim($string);
+      $string = stripslashes($string);
+      $string = htmlspecialchars($string, ENT_QUOTES, 'UTF-8');
+      return $string;
+    }
+
+    //テキスト系の入力チェック
+    public function textCheck($text){
+
+      switch($text){
+        case($_POST['title']):
+          $type = 'タイトル';
+          break;
+        default:
+          $type = '';
+          break;
+      }
+
+      if(empty($text)){
+        return redirect()-> route('admin.productmanage')-> with('message', $type .'は必須項目です。');
+      }
+      return $text;
+    }
+
+    //数値系の入力チェック
+    public function numCheck($num){
+
+      switch($num){
+        case ($_POST['quantity']):
+          $type = '数量';
+          break;
+        case ($_POST['price']):
+          $type = '価格';
+          break;
+        default:
+          $type = '';
+          break;
+      }
+
+      if(empty($num)){
+        return redirect()-> route('admin.productmanage')-> with('message', $type .'は必須項目です。');
+      }
+      //半角数字のみ許容
+      if(!preg_match('/^[0-9]+$/D', $num)){
+        return redirect()-> route('admin.productmanage')-> with('message', $type.'は半角数字のみ入力できます。');
+      }
+      return $num;
     }
 
 }

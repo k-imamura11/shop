@@ -20,7 +20,7 @@ class ProductsController extends Controller
     $products = DB::table('products')
                     ->where('hideflag', '=',  0)
                     ->orderby('updated_at', 'desc')
-                    ->paginate(9);
+                    ->paginate(12);
 
     //$gere初期化
     $genre = '商品一覧';
@@ -40,7 +40,7 @@ class ProductsController extends Controller
                     ->where('genre', '=', $id)
                     ->where('hideflag', '=', 0)
                     ->orderby('updated_at', 'desc')
-                    ->paginate(9);
+                    ->paginate(12);
 
     //$genreにカテゴリを紐づけ
     switch($id){
