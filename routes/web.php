@@ -30,6 +30,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
     Route::get('productmanage', 'Admin\ProductManagementsController@getProductManage')-> name('admin.productmanage');
     Route::get('add-product', 'Admin\ProductManagementsController@getAddProduct')-> name('admin.add-product');
     Route::post('add-product', 'Admin\ProductManagementsController@postAddProduct')-> name('admin.add-product');
+    Route::get('userdetail/{id}', 'Admin\AdminsController@getUserdetail')-> name('admin.userdetail');
+    Route::get('admindetail/{id}', 'Admin\AdminsController@getAdmindetail')-> name('admin.admindetail');
 });
 
 //ユーザー画面（認証必要）

@@ -84,3 +84,11 @@ body{
 .product-table .col5{
   width: 120px;
 }
+
+#userdetail-form input{
+  margin-bottom: 15px;
+}
+
+#admindetail-form input{
+  margin-bottom: 15px;
+}

@@ -15,7 +15,7 @@
         </tr>
         @foreach($users as $user)
         <tr class="table-data">
-          <td><a href="" class="glyphicon glyphicon-check pull-left" style="font-size: 18px; margin: 5px;"></a><div>{{ $user-> id }}</div></td>
+          <td><a href="{{ route('admin.userdetail', ['id' => $user-> id]) }}" class="glyphicon glyphicon-check pull-left" style="font-size: 18px; margin: 5px;"></a><div>{{ $user-> id }}</div></td>
           <td><div>{{ $user-> name }}</div></td>
           <td><div>{{ $user-> email }}</div></td>
           <td><div>{{ $user-> address }}</div></td>
