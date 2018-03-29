@@ -32,6 +32,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
     Route::post('add-product', 'Admin\ProductManagementsController@postAddProduct')-> name('admin.add-product');
     Route::get('userdetail/{id}', 'Admin\AdminsController@getUserdetail')-> name('admin.userdetail');
     Route::get('admindetail/{id}', 'Admin\AdminsController@getAdmindetail')-> name('admin.admindetail');
+    Route::get('userupdate', 'Admin\AdminsController@getUserForm')-> name('admin.userupdate');
+    Route::post('userupdate/{id}', 'Admin\AdminsController@postUserForm')-> name('admin.userupdate');
+    Route::get('adminupdate', 'Admin\AdminsController@getAdminForm')-> name('admin.adminupdate');
+    Route::post('adminupdate/{id}', 'Admin\AdminsController@postAdminForm')-> name('admin.adminupdate');
 });
 
 //ユーザー画面（認証必要）

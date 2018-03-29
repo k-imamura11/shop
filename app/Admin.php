@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\Validator;
 
 class Admin extends Authenticatable
 {
@@ -26,4 +27,22 @@ class Admin extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function validator(array $data){
+      // $data = trim($data);
+      // $data = stripslashes($data);
+      // $data = htmlspecialchars($data);
+
+      return Validator::make($data, [
+        'name' => 'required|string|max:255',
+        'email' => 'required|string|email|max:255|unique:users',
+        'password' => 'string|min:6',
+        'address' => 'required|string|max:255',
+        'phone_number' => 'numeric',
+        'address_number' => 'numeric',
+        'born' => 'numeric',
+      ]);
+
+      return $data;
+    }
 }

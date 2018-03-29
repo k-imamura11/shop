@@ -5,7 +5,10 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8 col-xs-12 col-md-offset-2">
-      <form action="" method="post" id="admindetail-form">
+      @if(Session::has('success_message'))
+      <div class="alert alert-success">{{ Session::get('success_message') }}</div>
+      @endif
+      <form action="{{ route('admin.adminupdate', ['id' => $admin-> id]) }}" method="post" id="admindetail-form">
         <div class="row">
           <div class="col-xs-12">
             <div cllass="form-group">
@@ -51,6 +54,7 @@
           </div>
         </div>
         <br>
+        {{ csrf_field() }}
         <button type="submit" class="btn btn-primary pull-right">保存</button>
       </form>
     </div>
