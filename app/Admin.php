@@ -28,6 +28,7 @@ class Admin extends Authenticatable
         'password', 'remember_token',
     ];
 
+    //管理画面用バリデータ
     public function validator(array $data){
       // $data = trim($data);
       // $data = stripslashes($data);

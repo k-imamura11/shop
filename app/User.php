@@ -26,4 +26,25 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
+    //管理画面用バリデータ
+    public function validator(array $data){
+      // $data = trim($data);
+      // $data = stripslashes($data);
+      // $data = htmlspecialchars($data);
+
+      return Validator::make($data, [
+        'name' => 'required|string|max:255',
+        'email' => 'required|string|email|max:255|unique:users',
+        'password' => 'string|min:6',
+        'address' => 'required|string|max:255',
+        'phone_number' => 'numeric',
+        'address_number' => 'numeric',
+        'born' => 'numeric',
+      ]);
+
+      return $data;
+    }
+
 }

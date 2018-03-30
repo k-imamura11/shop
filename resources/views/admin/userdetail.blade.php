@@ -5,7 +5,10 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8 col-xs-12 col-md-offset-2">
-      <form action="" method="post" id="userdetail-form">
+      @if(Session::has('success_message'))
+      <div class="alert alert-success">{{ Session::get('success_message') }}</div>
+      @endif
+      <form action="{{ route('admin.userupdate', ['id' => $user-> id]) }}" method="post" id="userdetail-form">
         <div class="row">
           <div class="col-xs-12">
             <div cllass="form-group">
