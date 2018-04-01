@@ -30,12 +30,15 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
     Route::get('productmanage', 'Admin\ProductManagementsController@getProductManage')-> name('admin.productmanage');
     Route::get('add-product', 'Admin\ProductManagementsController@getAddProduct')-> name('admin.add-product');
     Route::post('add-product', 'Admin\ProductManagementsController@postAddProduct')-> name('admin.add-product');
-    Route::get('userdetail/{id}', 'Admin\AdminsController@getUserdetail')-> name('admin.userdetail');
-    Route::get('admindetail/{id}', 'Admin\AdminsController@getAdmindetail')-> name('admin.admindetail');
-    Route::get('userupdate', 'Admin\AdminsController@getUserForm')-> name('admin.userupdate');
-    Route::post('userupdate/{id}', 'Admin\AdminsController@postUserForm')-> name('admin.userupdate');
-    Route::get('adminupdate', 'Admin\AdminsController@getAdminForm')-> name('admin.adminupdate');
-    Route::post('adminupdate/{id}', 'Admin\AdminsController@postAdminForm')-> name('admin.adminupdate');
+    Route::get('userdetail/{id}', 'Admin\UserManagementsController@getUserdetail')-> name('admin.userdetail');
+    Route::get('admindetail/{id}', 'Admin\UserManagementsController@getAdmindetail')-> name('admin.admindetail');
+    Route::get('userupdate/{id}', 'Admin\UserManagementsController@getUserForm')-> name('admin.userupdate');
+    Route::post('userupdate/{id}', 'Admin\UserManagementsController@postUserForm')-> name('admin.userupdate');
+    Route::get('adminupdate/{id}', 'Admin\UserManagementsController@getAdminForm')-> name('admin.adminupdate');
+    Route::post('adminupdate/{id}', 'Admin\UserManagementsController@postAdminForm')-> name('admin.adminupdate');
+    Route::get('productdetail/{id}', 'Admin\ProductManagementsController@getProductdetail')-> name('admin.productdetail');
+    Route::get('productupdate/{id}', 'Admin\ProductManagementsController@getUpdateProduct')-> name('admin.productupdate');
+    Route::post('productupdate/{id}', 'Admin\ProductManagementsController@postUpdateProduct')-> name('admin.productupdate');
 });
 
 //ユーザー画面（認証必要）

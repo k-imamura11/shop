@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Product;
 use App\Cart;
 use App\Order;
+use App\History;
 use DB;
 use Session;
 use Stripe\Charge;
@@ -67,7 +68,7 @@ class ProductsController extends Controller
       return view('shop.history');
     }
     $history = Session::has('product') ? Session::get('product') : null;
-    $products = new Product($history);
+    $products = new History($history);
 
     //UNIXタイムで降順にする
     foreach ($products-> items as $key => $value) {
@@ -83,7 +84,7 @@ class ProductsController extends Controller
   public function getAddHistory(Request $request, $id){
     $product = Product::find($id);
     $history = Session::has('product') ? Session::get('product') : null ;
-    $items = new Product($history);
+    $items = new History($history);
     $items-> addHistory($product, $product-> id);
 
     $request-> session()-> put('product', $items);

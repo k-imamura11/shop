@@ -30,19 +30,16 @@ class Admin extends Authenticatable
 
     //管理画面用バリデータ
     public function validator(array $data){
-      // $data = trim($data);
-      // $data = stripslashes($data);
-      // $data = htmlspecialchars($data);
 
       return Validator::make($data, [
         'name' => 'required|string|max:255',
-        'email' => 'required|string|email|max:255|unique:users',
-        'password' => 'string|min:6',
+        'email' => 'required|string|email|max:255',
+        'password' => 'present',
         'address' => 'required|string|max:255',
-        'phone_number' => 'numeric',
-        'address_number' => 'numeric',
-        'born' => 'numeric',
-      ]);
+        'phone_number' => 'present',
+        'address_number' => 'present',
+        'born' => 'present',
+      ])-> validate();
 
       return $data;
     }

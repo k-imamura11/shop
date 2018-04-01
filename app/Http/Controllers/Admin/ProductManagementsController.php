@@ -11,6 +11,7 @@ use Session;
 
 class ProductManagementsController extends Controller
 {
+
     //商品一覧取得
     public function getProductList(){
       $products = DB::table('products')
@@ -189,6 +190,102 @@ class ProductManagementsController extends Controller
         return redirect()-> route('admin.productmanage')-> with('message', $type.'は半角数字のみ入力できます。');
       }
       return $num;
+    }
+
+    public function getProductdetail($id){
+      $products = DB::table('products')
+                    ->select('products.*', 'genre.genre_name')
+                    ->join('genre', 'products.genre', '=', 'genre.id')
+                    ->where('products.id', '=', $id)
+                    ->get();
+
+      return view('admin.productdetail', ['products' => $products]);
+    }
+
+    public function getUpdateProduct($id){
+      $url = url('admin/productdetail/' .$id);
+      return redirect($url);
+    }
+
+    //商品情報更新
+    public function postUpdateProduct($id){
+
+      //POSTデータ取得
+      if(!empty($_POST)){
+        $title = $this-> formCheck($_POST['title']);
+        $genres = $_POST['genre'];
+        $quantity = $this->formCheck($_POST['quantity']);
+        $price = $this-> formCheck($_POST['price']);
+        $detail = $this-> formCheck($_POST['detail']);
+        $description = $this-> formCheck($_POST['description']);
+        $image_url_1 = $_FILES['image_url_1']['name'];
+        $image_url_2 = $_FILES['image_url_2']['name'];
+        $image_url_3 = $_FILES['image_url_3']['name'];
+      }
+
+      //フォームの入力チェック
+      $title = $this-> textCheck($title);
+      $price = $this-> numCheck($price);
+      $quantity = $this-> numCheck($quantity);
+
+      DB::beginTransaction();
+      try{
+
+        // //画像アップロード
+        if(!empty($_FILES['image_url_1'])){
+          $this-> postUpload('image_url_1');
+        }
+        if(!empty($_FILES['image_url_2'])){
+          $this-> postUpload('image_url_2');
+        }
+        if(!empty($_FILES['image_url_3'])){
+          $this-> postUpload('image_url_3');
+        }
+
+        //genreの紐づけ
+        switch($genres){
+          case 'メンズファッション':
+            $genre = 1;
+            break;
+          case 'レディースファッション':
+            $genre = 2;
+            break;
+          case 'キッズ・ベビー':
+            $genre = 3;
+            break;
+          case '時計・アクセサリー':
+            $genre = 4;
+            break;
+        }
+
+        $sql = ['title' => $title, 'genre' => $genre, 'quantity' => $quantity, 'price' => $price, 'detail' => $detail, 'description' => $description];
+
+        if(!empty($image_url_1)){
+          $sql = array_merge($sql, ['image_url_1' => date('Ymd-His') .$image_url_1]);
+          if(!empty($image_url_2)){
+            $sql = array_merge($sql, ['image_url_2', date('Ymd-His') .$image_url_2]);
+            if(!empty($image_url_3)){
+              $sql = array_merge($sql, ['image_url_3' => date('Ymd-His') .$image_url_3]);
+            }
+          }
+        }
+
+        Product::where('id', $id)-> update($sql);
+        Session::flash('success_message', '商品情報を更新しました。');
+
+      DB::commit();
+      }catch(\Exception $e){
+        logger($e-> getMessage());
+        //フォームエラーがある場合は表示しない
+        if(!Session::has('message')){
+          Session::flash('message', '登録できませんでした。');
+        }
+
+      DB::rollBack();
+      }
+
+      $url = url('admin/productdetail/' .$id);
+      return redirect($url);
     }
 
 }

@@ -8,6 +8,11 @@
       @if(Session::has('success_message'))
       <div class="alert alert-success">{{ Session::get('success_message') }}</div>
       @endif
+      @if(count($errors) > 0)
+      @foreach($errors-> all() as $error)
+      <div class="alert alert-danger">{{ $error }}}</div>
+      @endforeach
+      @endif
       <form action="{{ route('admin.userupdate', ['id' => $user-> id]) }}" method="post" id="userdetail-form">
         <div class="row">
           <div class="col-xs-12">
@@ -54,6 +59,7 @@
           </div>
         </div>
         <br>
+        {{ csrf_field() }}
         <button type="submit" class="btn btn-primary pull-right">保存</button>
       </form>
     </div>

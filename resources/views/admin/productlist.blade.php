@@ -16,7 +16,7 @@
         </tr>
         @foreach($products as $data)
         <tr class="table-data">
-          <td><a href="" class="glyphicon glyphicon-check pull-left" style="font-size: 18px; margin: 5px;"></a><div>{{ $data-> id }}</div></td>
+          <td><a href="{{ route('admin.productdetail', ['id' => $data-> id]) }}" class="glyphicon glyphicon-check pull-left" style="font-size: 18px; margin: 5px;"></a><div>{{ $data-> id }}</div></td>
           <td><div>{{{ $data-> title }}}</div></td>
           <td><div>{{ number_format($data-> price) }}</div></td>
           <td><div>{{ $data-> quantity }}</div></td>
